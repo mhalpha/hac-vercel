@@ -96,7 +96,7 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
           <div className=' flex flex-col gap-4'>
             <QuestionTitle
               question={`We can send you more information about your heart age result, as well as
-              tips to maintain a healthy heart?`}
+              tips to maintain a healthy heart.`}
             />
             <div className='md:w-[26rem] flex flex-col gap-3'>
               {options?.map((item: any, idx: number) => {
