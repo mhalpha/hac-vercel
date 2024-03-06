@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Avalon Md Cd';
+    src: url('Avalon-BoldCond.eot');
+    src: local('Avalon Bold Condensed'), local('Avalon-BoldCond'),
+        url('Avalon-BoldCond.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-BoldCond.woff2') format('woff2'),
+        url('Avalon-BoldCond.woff') format('woff'),
+        url('Avalon-BoldCond.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-BoldOblique.eot');
+    src: local('Avalon Bold Oblique'), local('Avalon-BoldOblique'),
+        url('Avalon-BoldOblique.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-BoldOblique.woff2') format('woff2'),
+        url('Avalon-BoldOblique.woff') format('woff'),
+        url('Avalon-BoldOblique.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-Bold.eot');
+    src: local('Avalon Bold'), local('Avalon-Bold'),
+        url('Avalon-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-Bold.woff2') format('woff2'),
+        url('Avalon-Bold.woff') format('woff'),
+        url('Avalon-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-Book.eot');
+    src: local('Avalon Book'), local('Avalon-Book'),
+        url('Avalon-Book.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-Book.woff2') format('woff2'),
+        url('Avalon-Book.woff') format('woff'),
+        url('Avalon-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon Md Cd';
+    src: url('Avalon-MediumCond.eot');
+    src: local('Avalon Medium Condensed'), local('Avalon-MediumCond'),
+        url('Avalon-MediumCond.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-MediumCond.woff2') format('woff2'),
+        url('Avalon-MediumCond.woff') format('woff'),
+        url('Avalon-MediumCond.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-MediumOblique.eot');
+    src: local('Avalon Medium Oblique'), local('Avalon-MediumOblique'),
+        url('Avalon-MediumOblique.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-MediumOblique.woff2') format('woff2'),
+        url('Avalon-MediumOblique.woff') format('woff'),
+        url('Avalon-MediumOblique.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-Demi.eot');
+    src: local('Avalon Demi'), local('Avalon-Demi'),
+        url('Avalon-Demi.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-Demi.woff2') format('woff2'),
+        url('Avalon-Demi.woff') format('woff'),
+        url('Avalon-Demi.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon Extra';
+    src: url('Avalon-ExtraLightObl.eot');
+    src: local('Avalon Extra Light Oblique'), local('Avalon-ExtraLightObl'),
+        url('Avalon-ExtraLightObl.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-ExtraLightObl.woff2') format('woff2'),
+        url('Avalon-ExtraLightObl.woff') format('woff'),
+        url('Avalon-ExtraLightObl.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-DemiOblique.eot');
+    src: local('Avalon Demi Oblique'), local('Avalon-DemiOblique'),
+        url('Avalon-DemiOblique.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-DemiOblique.woff2') format('woff2'),
+        url('Avalon-DemiOblique.woff') format('woff'),
+        url('Avalon-DemiOblique.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-Medium.eot');
+    src: local('Avalon Medium'), local('Avalon-Medium'),
+        url('Avalon-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-Medium.woff2') format('woff2'),
+        url('Avalon-Medium.woff') format('woff'),
+        url('Avalon-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('Avalon-BookOblique.eot');
+    src: local('Avalon Book Oblique'), local('Avalon-BookOblique'),
+        url('Avalon-BookOblique.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-BookOblique.woff2') format('woff2'),
+        url('Avalon-BookOblique.woff') format('woff'),
+        url('Avalon-BookOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avalon Extra';
+    src: url('Avalon-ExtraLight.eot');
+    src: local('Avalon Extra Light'), local('Avalon-ExtraLight'),
+        url('Avalon-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-ExtraLight.woff2') format('woff2'),
+        url('Avalon-ExtraLight.woff') format('woff'),
+        url('Avalon-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon Cd';
+    src: url('Avalon-DemiCond.eot');
+    src: local('Avalon Demi Condensed'), local('Avalon-DemiCond'),
+        url('Avalon-DemiCond.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-DemiCond.woff2') format('woff2'),
+        url('Avalon-DemiCond.woff') format('woff'),
+        url('Avalon-DemiCond.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avalon Cd';
+    src: url('Avalon-BookCond.eot');
+    src: local('Avalon Book Condensed'), local('Avalon-BookCond'),
+        url('Avalon-BookCond.eot?#iefix') format('embedded-opentype'),
+        url('Avalon-BookCond.woff2') format('woff2'),
+        url('Avalon-BookCond.woff') format('woff'),
+        url('Avalon-BookCond.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

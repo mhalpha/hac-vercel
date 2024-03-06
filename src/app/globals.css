@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('/font/https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'Avalon Md Cd';
+  src: url('/font/Avalon-BoldCond.eot');
+  src: local('Avalon Bold Condensed'), local('Avalon-BoldCond'),
+    url('/font/Avalon-BoldCond.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-BoldCond.woff2') format('woff2'),
+    url('/font/Avalon-BoldCond.woff') format('woff'),
+    url('/font/Avalon-BoldCond.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-BoldOblique.eot');
+  src: local('Avalon Bold Oblique'), local('Avalon-BoldOblique'),
+    url('/font/Avalon-BoldOblique.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-BoldOblique.woff2') format('woff2'),
+    url('/font/Avalon-BoldOblique.woff') format('woff'),
+    url('/font/Avalon-BoldOblique.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-Bold.eot');
+  src: local('Avalon Bold'), local('Avalon-Bold'),
+    url('/font/Avalon-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-Bold.woff2') format('woff2'), url('/font/Avalon-Bold.woff') format('woff'),
+    url('/font/Avalon-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-Book.eot');
+  src: local('Avalon Book'), local('Avalon-Book'),
+    url('/font/Avalon-Book.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-Book.woff2') format('woff2'), url('/font/Avalon-Book.woff') format('woff'),
+    url('/font/Avalon-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon Md Cd';
+  src: url('/font/Avalon-MediumCond.eot');
+  src: local('Avalon Medium Condensed'), local('Avalon-MediumCond'),
+    url('/font/Avalon-MediumCond.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-MediumCond.woff2') format('woff2'),
+    url('/font/Avalon-MediumCond.woff') format('woff'),
+    url('/font/Avalon-MediumCond.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-MediumOblique.eot');
+  src: local('Avalon Medium Oblique'), local('Avalon-MediumOblique'),
+    url('/font/Avalon-MediumOblique.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-MediumOblique.woff2') format('woff2'),
+    url('/font/Avalon-MediumOblique.woff') format('woff'),
+    url('/font/Avalon-MediumOblique.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-Demi.eot');
+  src: local('Avalon Demi'), local('Avalon-Demi'),
+    url('/font/Avalon-Demi.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-Demi.woff2') format('woff2'), url('/font/Avalon-Demi.woff') format('woff'),
+    url('/font/Avalon-Demi.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon Extra';
+  src: url('/font/Avalon-ExtraLightObl.eot');
+  src: local('Avalon Extra Light Oblique'), local('Avalon-ExtraLightObl'),
+    url('/font/Avalon-ExtraLightObl.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-ExtraLightObl.woff2') format('woff2'),
+    url('/font/Avalon-ExtraLightObl.woff') format('woff'),
+    url('/font/Avalon-ExtraLightObl.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-DemiOblique.eot');
+  src: local('Avalon Demi Oblique'), local('Avalon-DemiOblique'),
+    url('/font/Avalon-DemiOblique.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-DemiOblique.woff2') format('woff2'),
+    url('/font/Avalon-DemiOblique.woff') format('woff'),
+    url('/font/Avalon-DemiOblique.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-Medium.eot');
+  src: local('Avalon Medium'), local('Avalon-Medium'),
+    url('/font/Avalon-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-Medium.woff2') format('woff2'), url('/font/Avalon-Medium.woff') format('woff'),
+    url('/font/Avalon-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon';
+  src: url('/font/Avalon-BookOblique.eot');
+  src: local('Avalon Book Oblique'), local('Avalon-BookOblique'),
+    url('/font/Avalon-BookOblique.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-BookOblique.woff2') format('woff2'),
+    url('/font/Avalon-BookOblique.woff') format('woff'),
+    url('/font/Avalon-BookOblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avalon Extra';
+  src: url('/font/Avalon-ExtraLight.eot');
+  src: local('Avalon Extra Light'), local('Avalon-ExtraLight'),
+    url('/font/Avalon-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-ExtraLight.woff2') format('woff2'),
+    url('/font/Avalon-ExtraLight.woff') format('woff'),
+    url('/font/Avalon-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon Cd';
+  src: url('/font/Avalon-DemiCond.eot');
+  src: local('Avalon Demi Condensed'), local('Avalon-DemiCond'),
+    url('/font/Avalon-DemiCond.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-DemiCond.woff2') format('woff2'),
+    url('/font/Avalon-DemiCond.woff') format('woff'),
+    url('/font/Avalon-DemiCond.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avalon Cd';
+  src: url('/font/Avalon-BookCond.eot');
+  src: local('Avalon Book Condensed'), local('Avalon-BookCond'),
+    url('/font/Avalon-BookCond.eot?#iefix') format('embedded-opentype'),
+    url('/font/Avalon-BookCond.woff2') format('woff2'),
+    url('/font/Avalon-BookCond.woff') format('woff'),
+    url('/font/Avalon-BookCond.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Avalon', sans-serif; /* Use AvalonRegular as the default, and fall back to sans-serif if not available. */
+}
+
+* {
+  font-family: 'Avalon', sans-serif !important;
+}
+
+/* Animation for Wrong Input Value */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px); /* Adjust the distance and direction as needed */
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px); /* Adjust the distance and direction as needed */
+  }
+}
+
+.wrong-animation {
+  animation: shake 0.5s ease-in-out; /* Adjust the animation duration as needed */
+}
+
+/* Animation for Spinner */
+.my-spinner {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 100px;
+  height: 100px;
+}
+
+.my-spinner .path {
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.strokecolor {
+  stroke: #1e90ff;
+}
+
+::-webkit-progress-bar {
+  background-color: #ccc;
+}
+
+.selectOption {
+  background-color: rgba(10, 10, 10, 0.1);
+  box-shadow: rgba(10, 10, 10, 0.8) 0px 0px 0px 2px inset;
+  color: rgb(10, 10, 10);
+  transition-duration: 0.1s;
+  transition-property: background-color, color, border-color, opacity, box-shadow;
+  transition-timing-function: ease-out;
+  cursor: pointer;
+  opacity: 1;
+}
+.animate {
+  animation: jBPXGM 0.25s ease 0s 2 normal none running;
+}
+@keyframes jBPXGM {
+  50% {
+    opacity: 0.3;
+  }
+}
