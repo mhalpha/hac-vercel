@@ -94,7 +94,7 @@ const PrivacyOptionForm: React.FC<CustomOptionFormProps> = ({
           </div>
           <div className=' flex flex-col gap-4'>
             <h1 className='text-2xl font-bold text-black'>
-            I have read and understand that I may be contacted as outlined in the <a href='#/' className='cursor-pointer underline'>
+            I have read and understand that I may be contacted as outlined in the <a href='https://www.heartfoundation.org.au/hfps13' target="_blank" className='cursor-pointer underline'>
                 Privacy Statement
               </a>
               .*
