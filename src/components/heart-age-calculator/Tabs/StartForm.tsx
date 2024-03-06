@@ -41,7 +41,7 @@ const StartForm = ({
           <ul className='ml-4'>
             <li className='text-center'>
               We can send you more information about your heart age result, as well as a
-              tailored plan to maintain a healthy heart
+              tailored plan to maintain a healthy heart.
             </li>
           </ul>
         </div>
