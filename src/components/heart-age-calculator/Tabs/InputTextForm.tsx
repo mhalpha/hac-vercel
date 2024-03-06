@@ -28,6 +28,7 @@ interface InputTextProps extends TabProps {
   isDecimalAllowed?: boolean;
   limitUnit?: string;
   errorCategory?: string;
+  mode?: 'alphabets' | 'number';
 }
 
 const InputText: React.FC<InputTextProps> = ({
@@ -47,6 +48,7 @@ const InputText: React.FC<InputTextProps> = ({
   callback,
   limitUnit,
   errorCategory,
+  mode,
 }) => {
   const [, uiSubRefresh] = React.useState(Date.now());
   const [showError, setShowError] = React.useState(false);
@@ -58,7 +60,6 @@ const InputText: React.FC<InputTextProps> = ({
     uiRefresh(Date.now());
   };
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // Prevent non-numeric characters from being entered
     if (e.key === 'Backspace' || /^Arrow/.test(e.key)) {
       return;
     }
@@ -66,21 +67,28 @@ const InputText: React.FC<InputTextProps> = ({
       handleForward();
       return;
     }
-
     if (isDecimalAllowed) {
-      if (e.key && /^[a-zA-Z!@#$%^&*(),?":{}|<>]+$/.test(e.key) && e.key !== '.') {
+      // Check if the input is a decimal point
+      if (e.key === '.' && formRef[formKey]?.includes('.')) {
+        e.preventDefault();
+        return;
+      }
+      if (
+        e.key &&
+        /^[a-zA-Z!@#$%^&*(),?":{}|<>\/\\=\-;'+_\-\[\]]+$/.test(e.key) &&
+        e.key !== '.'
+      ) {
         e.preventDefault();
         uiSubRefresh(Date.now());
         uiRefresh(Date.now());
       }
     } else {
-      if (e.key && /^[a-zA-Z!@#$%^&*(),.?":{}|<>]+$/.test(e.key)) {
+      if (e.key && /^[a-zA-Z!@#$%^&*(),?":{}|<>\/\\=\-;'.+_\-\[\]]+$/.test(e.key)) {
         e.preventDefault();
         uiSubRefresh(Date.now());
         uiRefresh(Date.now());
       }
     }
-
     uiSubRefresh(Date.now());
     uiRefresh(Date.now());
   };
@@ -162,10 +170,14 @@ const InputText: React.FC<InputTextProps> = ({
 
             {showMaxMinError && (
               <div className='p-2 w-full md:w-full rounded-lg inline-flex justify-center md:justify-start text-red-main bg-red-light'>
-                <h1 className='flex flex-col md:flex-row items-center justify-center md:justify-start md:items-start md:gap-2 text-center md:text-left'>
+                <h1 className='flex flex-col md:flex-row items-center justify-center md:justify-start md:items-center md:gap-1 text-center md:text-left'>
                   <TbAlertTriangleFilled />
-                 
-                  {`The Heart Age Calculator is only validated for people ${errorCategory} between ${minValue} and ${maxValue}.`}
+                  <span className='font-bold'>Oops! </span>
+                  {formKey === 'age' ? (
+                    <span className='text-center'>{`The Heart Age Calculator is only validated for people ${errorCategory} between ${minValue} and ${maxValue}.`}</span>
+                  ) : (
+                    `${errorText} between ${minValue} and ${maxValue}.`
+                  )}
                 </h1>
               </div>
             )}
