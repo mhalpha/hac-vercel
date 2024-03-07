@@ -40,7 +40,7 @@ export const formOptions = {
   ReportOptions: [
     {
       value: true,
-      label: 'Yes, send me a free heart age report',
+      label: 'Yes, send me more information',
       letter: 'Y',
     },
     {
