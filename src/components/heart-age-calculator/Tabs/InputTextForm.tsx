@@ -171,7 +171,7 @@ const InputText: React.FC<InputTextProps> = ({
             {showMaxMinError && (
               <div className='p-2 w-full md:w-full rounded-lg inline-flex justify-center md:justify-start text-red-main bg-red-light'>
                 <h1 className='flex flex-col md:flex-row items-center justify-center md:justify-start md:items-center md:gap-1 text-center md:text-left'>
-                  <TbAlertTriangleFilled />
+                  
                   <span className='font-bold'>Oops! </span>
                   {formKey === 'age' ? (
                     <span className='text-center'>{`The Heart Age Calculator is only validated for people ${errorCategory} between ${minValue} and ${maxValue}.`}</span>
