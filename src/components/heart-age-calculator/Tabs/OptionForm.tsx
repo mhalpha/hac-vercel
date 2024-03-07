@@ -208,6 +208,8 @@ const OptionForm: React.FC<OptionFormProps> = ({
         </div>
       </article>
       <Modal
+        isDismissable={false}
+        placement='bottom-center'
         motionProps={{
           variants: {
             enter: {
@@ -230,7 +232,8 @@ const OptionForm: React.FC<OptionFormProps> = ({
         }}
         hideCloseButton
         isOpen={openPopup}
-        onClose={() => setOpenPopUp(false)}>
+        onClose={() => setOpenPopUp(false)}
+        style={{ bottom: '17vh' }}>
         <ModalContent>
           {(onClose) => (
             <>
