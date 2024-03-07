@@ -157,8 +157,8 @@ const InputText: React.FC<InputTextProps> = ({
 
             <TextInput
               type='text'
-              inputMode={formKey === 'cholesterolLevel' || formKey === 'HBLCholesterolLevel' ? 'decimal' : 'numeric'}
-              pattern={formKey === 'cholesterolLevel' || formKey === 'HBLCholesterolLevel' ? '[0-9]*[.]?[0-9]*' : '[0-9]*'}
+              inputMode='numeric'
+              pattern='[0-9]*'
               value={formRef[formKey]}
               onChange={handleChange}
               onKeyDown={handleKeyPress}
