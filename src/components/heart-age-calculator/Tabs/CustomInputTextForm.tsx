@@ -152,6 +152,7 @@ const CustomInputText: React.FC<CustomInputTextProps> = ({
                     ? 'wrong-animation border-red-main text-2xl md:text-5xl'
                     : 'text-2xl md:text-5xl'
                 }
+                autoFocus
               />
             ) : (
               <TextInput
@@ -163,6 +164,7 @@ const CustomInputText: React.FC<CustomInputTextProps> = ({
                 className={
                   showError || showMaxMinError ? 'wrong-animation border-red-main ' : ''
                 }
+                autoFocus
               />
             )}
 
