@@ -135,7 +135,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 errorText='Please enter a value'
                 uiRefresh={uiRefresh}
                 minValue={35}
-                maxValue={300}
+                maxValue={999}
                 limit={true}
                 errorCategory='weighted'
               />
