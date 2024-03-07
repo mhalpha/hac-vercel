@@ -166,6 +166,7 @@ const InputText: React.FC<InputTextProps> = ({
                 showError || showMaxMinError ? 'wrong-animation border-red-main' : ''
               }
               minLength={1}
+              autoFocus
             />
 
             {showMaxMinError && (

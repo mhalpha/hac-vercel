@@ -561,9 +561,9 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   setFormRef={setFormRef}
                   formKey='email'
                   steps={steps}
-                  question={`What's the best email address for us to send your heart age report to, `}
+                  question={`What's the best email address for us to send your heart age report to`}
                   label={``}
-                  boldWord={`${formRef['firstName']}`}
+                 
                   placeholder='name@example.com'
                   errorText='Please enter a correct email'
                   uiRefresh={uiRefresh}
@@ -671,9 +671,9 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                     setFormRef={setFormRef}
                     formKey='email'
                     steps={steps}
-                    question={`What's the best email address for us to send your heart age report to, `}
+                    question={`What's the best email address for us to send your heart age report to`}
                     label={``}
-                    boldWord={`${formRef['firstName']}`}
+                    
                     placeholder='name@example.com'
                     errorText='Please enter a correct email'
                     uiRefresh={uiRefresh}
@@ -790,9 +790,9 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   setFormRef={setFormRef}
                   formKey='email'
                   steps={steps}
-                  question={`What's the best email address for us to send your heart age report to, `}
+                  question={`What's the best email address for us to send your heart age report to`}
                   label={``}
-                  boldWord={`${formRef['firstName']}`}
+                  
                   placeholder='name@example.com'
                   errorText='Please enter a correct email'
                   uiRefresh={uiRefresh}
