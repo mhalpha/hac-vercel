@@ -54,11 +54,6 @@ export const formOptions = {
       value: true,
       label: 'I accept',
       letter: 'Y',
-    },
-    {
-      value: false,
-      label: `I don't accept`,
-      letter: 'N',
-    },
+    }
   ],
 };
