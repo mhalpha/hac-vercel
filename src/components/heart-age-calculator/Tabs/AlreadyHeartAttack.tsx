@@ -54,10 +54,10 @@ const AlreadyHeartAttack: React.FC<OptionFormProps> = ({
           Unfortunately, this calculator is not suitable for individuals who have already
           experienced a heart attack or stroke, or have been diagnosed with heart disease.
           We recommend consulting your doctor for personalised guidance on managing your
-          heart condition.<br></br> <br></br> Additionally, you can also join our <a className='text-[#C8102E]' href='https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fgroups%2Fmyheartmylifecommunity' target="_blank">MyHeart, MyLife online
+          heart condition.<br></br> <br></br> Additionally, you can join our <a className='text-[#C8102E]' href='https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fgroups%2Fmyheartmylifecommunity' target="_blank">MyHeart, MyLife online
           community</a>. This safe online group provides a supportive space where individuals
           living with heart conditions can share experiences, offer and receive support,
-          and discover ways to lead a heart-healthy life together.
+          and discover ways to lead a heart-healthy life.
         </h1>
         <button
           onClick={handleRestart}

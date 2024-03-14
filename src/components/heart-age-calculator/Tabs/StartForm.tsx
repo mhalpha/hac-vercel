@@ -49,7 +49,7 @@ const StartForm = ({
           <button
             onKeyDown={handleButtonKeyDown}
             onClick={handleClick}
-            className='py-2 px-6 rounded-3xl text-xl  bg-red-main text-white font-bold'>
+            className='py-2 px-6 rounded-3xl text-xl  bg-red-main text-white font-bold mt-2'>
             Start
           </button>
         </div>

@@ -97,7 +97,7 @@ const PrivacyOptionForm: React.FC<CustomOptionFormProps> = ({
             I have read and understand that I may be contacted as outlined in the <a href='https://www.heartfoundation.org.au/hfps13' target="_blank" className='cursor-pointer underline'>
                 Privacy Statement
               </a>
-              .*
+              .
             </h1>
             <div className='w-[13rem] flex flex-col gap-3'>
               {options?.map((item: any, idx: number) => {
