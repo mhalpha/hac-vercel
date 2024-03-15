@@ -13,7 +13,7 @@ const ShowError = ({
       className={`p-2 w-full ${
         isErrorTextLarge ? 'md:w-[39.5rem]' : 'md:w-[20.5rem]'
       } rounded-lg inline-flex justify-center md:justify-start text-red-main bg-red-light`}>
-      <h1 className='flex flex-col md:flex-row items-center'>
+      <h1 className='flex flex-col md:flex-row items-center md:gap-1'>
         <TbAlertTriangleFilled />
         <span className='font-bold mr-2'>Oops!</span> <span>{errorText}</span>
       </h1>
