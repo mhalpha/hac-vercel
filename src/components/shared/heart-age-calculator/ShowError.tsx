@@ -15,7 +15,7 @@ const ShowError = ({
       } rounded-lg inline-flex justify-center md:justify-start text-red-main bg-red-light`}>
       <h1 className='flex flex-col md:flex-row items-center md:gap-1'>
         <TbAlertTriangleFilled />
-        <span className='font-bold mr-2'>Oops!</span> <span>{errorText}</span>
+        <span className='font-bold'>Oops!</span> <span>{errorText}</span>
       </h1>
     </div>
   );
