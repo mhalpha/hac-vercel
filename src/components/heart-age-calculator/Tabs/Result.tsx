@@ -226,18 +226,18 @@ const Result = ({
   } else {
     return (
       <Fade delay={100}>
-        <h1 className='font-bold text-xl md:text-4xl text-center '>
+        <h1 className='font-bold text-xl md:text-2xl text-center '>
           Your calculated results are...
         </h1>
         <div
-          className={`relative w-[20rem] h-[20rem] bg-[url('/Heart.png')] bg-contain bg-no-repeat text-white`}>
-          <h1 className='text-center text-white font-bold text-[7rem] absolute top-[22%] right-[31%]'>
+          className={`relative w-[12rem] h-[12rem] bg-[url('/Heart.png')] bg-contain bg-no-repeat text-white`}>
+          <h1 className='text-center text-white font-bold text-[4rem] absolute top-[27%] right-[32%]'>
             {matchingScores.final}
           </h1>
         </div>
         <div>
           {matchingScores.final < parseInt(formRef.age) && (
-            <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-xl'>
+            <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-lg'>
               This is BELOW your actual age. <br></br>
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
@@ -245,7 +245,7 @@ const Result = ({
             </h6>
           )}
           {matchingScores.final > parseInt(formRef.age) && (
-            <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-xl'>
+            <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-lg'>
               This is ABOVE your actual age.<br></br>
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
@@ -253,7 +253,7 @@ const Result = ({
             </h6>
           )}
           {matchingScores.final === parseInt(formRef.age) && (
-            <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-xl'>
+            <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-lg'>
               This is EQUAL to your actual age.<br></br>
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
@@ -264,7 +264,7 @@ const Result = ({
         <div className='flex justify-center items-center gap-2 '>
           <button
             onClick={handleRestartClick}
-            className='bg-red-main text-white font-bold px-6 rounded-3xl text-2xl py-2 mt-4'>
+            className='bg-red-main text-white font-bold px-6 rounded-3xl text-xl py-2 mt-4'>
             Restart
           </button>
         </div>
