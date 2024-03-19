@@ -241,9 +241,7 @@ const Result = ({
               This is BELOW your actual age. <br></br>
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
-              appointment. If you are aged 45 years and older, aged 30 and of First
-              Nations descent, or 35 and above living with diabetes, we recommend you have
-              a Medicare-subsidised Heart Health Check with your doctor.
+              appointment. If you are aged 45 and over and do not already have heart disease, we recommend you see your doctor for a Heart Health Check. Some people may be eligible earlier, including First Nations peoples from 30 years, and from 35 years for people living with diabetes.
             </h6>
           )}
           {matchingScores.final > parseInt(formRef.age) && (
@@ -251,9 +249,7 @@ const Result = ({
               This is ABOVE your actual age.<br></br>
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
-              appointment. If you are aged 45 years and older, aged 30 and of First
-              Nations descent, or 35 and above living with diabetes, we recommend you have
-              a Medicare-subsidised Heart Health Check with your doctor.
+              appointment. If you are aged 45 and over and do not already have heart disease, we recommend you see your doctor for a Heart Health Check. Some people may be eligible earlier, including First Nations peoples from 30 years, and from 35 years for people living with diabetes.
             </h6>
           )}
           {matchingScores.final === parseInt(formRef.age) && (
@@ -261,9 +257,7 @@ const Result = ({
               This is EQUAL to your actual age.<br></br>
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
-              appointment. If you are aged 45 years and older, aged 30 and of First
-              Nations descent, or 35 and above living with diabetes, we recommend you have
-              a Medicare-subsidised Heart Health Check with your doctor.
+              appointment. If you are aged 45 and over and do not already have heart disease, we recommend you see your doctor for a Heart Health Check. Some people may be eligible earlier, including First Nations peoples from 30 years, and from 35 years for people living with diabetes.
             </h6>
           )}
         </div>

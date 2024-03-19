@@ -134,7 +134,7 @@ const InputText: React.FC<InputTextProps> = ({
             {formKey === 'weight' || formKey === 'height' ? (
               <h3 className='italic text-grey-text'>
                 {label}
-                <span className='font-bold'>{valueFormat}.</span>
+                <span>{valueFormat}.</span>
               </h3>
             ) : (
               <h3 className='italic text-grey-text'>
@@ -146,11 +146,11 @@ const InputText: React.FC<InputTextProps> = ({
                     {limitUnit ? (
                       <span className=''> {limitUnit}</span>
                     ) : (
-                      <span className='font-bold'>.</span>
+                      <span>.</span>
                     )}
                   </span>
                 ) : (
-                  <span className='font-bold'>{valueFormat}.</span>
+                  <span>{valueFormat}.</span>
                 )}
               </h3>
             )}
