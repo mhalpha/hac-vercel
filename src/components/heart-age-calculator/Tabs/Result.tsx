@@ -192,6 +192,11 @@ const Result = ({
           HeartAge: lookupTables.final[finalResult],
           WantedReport: wantReport ? true : false,
         };
+        if (wantReport) {
+          postData['Email'] = email;
+          postData['FirstName'] = firstName;
+          postData['LastName'] = lastName;
+        }
         (async () => {
           await axios
             .post(apiUrl, postData)

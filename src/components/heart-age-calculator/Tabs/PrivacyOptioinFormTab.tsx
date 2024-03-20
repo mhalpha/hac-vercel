@@ -37,8 +37,6 @@ const PrivacyOptionForm: React.FC<CustomOptionFormProps> = ({
       const key = event.key.toUpperCase();
       if (key === 'Y') {
         handleClick(true);
-      } else if (key === 'N') {
-        handleClick(false);
       }
     };
     document.addEventListener('keydown', handleKeyPress);

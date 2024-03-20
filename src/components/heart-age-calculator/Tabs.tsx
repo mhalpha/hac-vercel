@@ -318,7 +318,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
                   limit={false}
-
+                  callback={handleFormRefresh}
                 />
               );
               return componentToShow;
@@ -424,7 +424,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   key={steps.current}
                   formRef={formRef}
                   setFormRef={setFormRef}
-                  formKey='postalCode '
+                  formKey='postalCode'
                   steps={steps}
                   question='Lastly, what is your postcode?'
                   label={`This helps us to understand Australia’s heart health across regions and is completely anonymous`}
@@ -432,6 +432,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
                   limit={false}
+                  callback={handleFormRefresh}
                 />
               );
             }
