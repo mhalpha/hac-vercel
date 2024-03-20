@@ -231,7 +231,7 @@ const Result = ({
         </h1>
         <div
           className={`relative w-[12rem] h-[12rem] bg-[url('/Heart.png')] bg-contain bg-no-repeat text-white`}>
-          <h1 className='text-center text-white font-bold text-[4rem] absolute top-[27%] right-[32%]'>
+          <h1 className='text-center text-white font-bold text-[4rem] absolute top-[25%] right-[32%]'>
             {matchingScores.final}
           </h1>
         </div>
