@@ -177,7 +177,7 @@ const InputText: React.FC<InputTextProps> = ({
                   {formKey === 'age' ? (
                     <span className='text-center'>{`The Heart Age Calculator is only validated for people ${errorCategory} between ${minValue} and ${maxValue}.`}</span>
                   ) : (
-                    `${errorText} between ${minValue} and ${maxValue}.`
+                    `Please enter a value between ${minValue} and ${maxValue}.`
                   )}
                 </h1>
               </div>
