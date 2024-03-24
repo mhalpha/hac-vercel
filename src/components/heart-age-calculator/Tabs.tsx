@@ -318,7 +318,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
                   limit={false}
-                  callback={handleFormRefresh}
+
                 />
               );
               return componentToShow;
@@ -432,7 +432,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
                   limit={false}
-                  callback={handleFormRefresh}
                 />
               );
             }

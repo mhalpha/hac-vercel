@@ -1,5 +1,7 @@
 import React, { SetStateAction, useEffect } from 'react';
 import { Slide } from 'react-awesome-reveal';
+import { sendGTMEvent } from '@next/third-parties/google'
+
 
 const StartForm = ({
   uiRefresh,
@@ -31,6 +33,11 @@ const StartForm = ({
       handleClick();
     }
   };
+  const eventData = {
+    event: 'navigate_form',
+    form_name: 'heart age calculator',
+    form_stage: 'start',
+  };
   return (
     <Slide direction='up' delay={100}>
       <div className='w-full h-full flex flex-col items-center gap-8 md:gap-4'>
@@ -48,7 +55,10 @@ const StartForm = ({
         <div className=''>
           <button
             onKeyDown={handleButtonKeyDown}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick();
+              sendGTMEvent(eventData);
+            }}
             className='py-2 px-6 rounded-3xl text-xl  bg-red-main text-white font-bold mt-2'>
             Start
           </button>

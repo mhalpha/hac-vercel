@@ -11,6 +11,7 @@ import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import { IoArrowDownOutline } from 'react-icons/io5';
 import { IoArrowUpOutline } from 'react-icons/io5';
 import QuestionTitle from '@/components/shared/heart-age-calculator/QuestionTitle';
+import { sendGTMEvent } from '@next/third-parties/google'
 
 interface WantReportTabProps extends TabProps {
   question: string;
@@ -53,7 +54,6 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
   }, []);
   const handleClick = (value: boolean) => {
     setFormRef((prev) => ({ ...prev, [formKey]: value }));
-    // formRef[formKey] = value;
     setShowError(false);
     selectedValue.current = value;
     uiRefresh(Date.now());
@@ -61,6 +61,30 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
     setTimeout(() => {
       handleForward();
     }, 500);
+  
+    // Send GTM event based on the selected option value
+    if (options) {
+      const selectedItem = options.find((item: any) => item.value === value);
+      if (selectedItem) {
+        if (value === true) {
+          const eventData = {
+            event: 'buttonClick',
+            text: 'Yes, send me more information',
+            position: 'heart age calculator'
+          };
+          console.log('Sending GTM event with data:', eventData);
+          sendGTMEvent(eventData);
+        } else {
+          const eventData = {
+            event: 'buttonClick',
+            text: 'No, I do not want more information',
+            position: 'heart age calculator'
+          };
+          console.log('Sending GTM event with data:', eventData);
+          sendGTMEvent(eventData);
+        }
+      }
+    }
   };
 
   const handleForward = (): void => {

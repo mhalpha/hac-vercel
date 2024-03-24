@@ -44,6 +44,7 @@ const Heart_Age_Calculator: React.FC = () => {
     lastName: null,
     email: null,
   });
+
   const [lookupTables, setLookupTables] = useState<LookupTables>({
     age: {},
     smoke: {},
@@ -109,6 +110,8 @@ const Heart_Age_Calculator: React.FC = () => {
       }
     }
   }, [formRef.cholesterolLevel, formRef.bloodPressureLevel, formRef.wantReport]);
+
+ 
 
   return (
     <Wrapper Style='w-full h-[100vh-80px] pt-2 md:pt-4'>
