@@ -7,6 +7,8 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import { IoArrowDownOutline, IoArrowUpOutline } from 'react-icons/io5';
+import { sendGTMEvent } from '@next/third-parties/google'
+
 const ResultTab = ({
   formRef,
   steps,
@@ -57,6 +59,11 @@ const ResultTab = ({
     steps.current = steps.current - 1;
     uiRefresh(Date.now());
   };
+  const eventData = {
+    event: 'navigate_form',
+    form_name: 'heart age calculator',
+    form_stage: 'submit',
+  };
 
   return (
     <article
@@ -75,7 +82,10 @@ const ResultTab = ({
                 <div className='w-full  flex justify-center'>
                   <button
                     className='bg-red-main text-white font-bold px-6 rounded-3xl text-2xl py-2 mt-4'
-                    onClick={handleGetResultsClick}>
+                    onClick={() => {
+                      handleGetResultsClick();
+                      sendGTMEvent(eventData);
+                    }}>
                     Get results
                   </button>
                 </div>
