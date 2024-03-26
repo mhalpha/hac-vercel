@@ -167,6 +167,7 @@ const InputText: React.FC<InputTextProps> = ({
               }
               minLength={1}
               autoFocus
+              maxLength={formKey === 'postalCode' ? 4 : undefined}
             />
 
             {showMaxMinError && (
