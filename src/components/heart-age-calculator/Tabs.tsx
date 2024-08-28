@@ -138,7 +138,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 maxValue={999}
                 limit={true}
                 errorCategory='weighted'
-                isDecimalAllowed={true}
               />
             );
           case 6:
@@ -158,7 +157,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 limit={true}
                 minValue={60}
                 maxValue={220}
-                isDecimalAllowed={true}
               />
             );
           case 7:
@@ -239,7 +237,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   maxValue={228}
                   limitUnit='mmHg.'
                   errorCategory='SBL'
-                  isDecimalAllowed={true}
                 />
               );
             } else {
@@ -279,7 +276,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   maxValue={150}
                   limitUnit='mmHg.'
                   errorCategory='DBL'
-                  isDecimalAllowed={true}
                   
                 />
               );
@@ -322,7 +318,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
                   limit={false}
-                  isDecimalAllowed={true}
+
                 />
               );
               return componentToShow;
