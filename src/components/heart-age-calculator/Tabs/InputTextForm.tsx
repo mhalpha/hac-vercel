@@ -155,19 +155,17 @@ const InputText: React.FC<InputTextProps> = ({
               </h3>
             )}
 
-            <TextInput
-              type='text'
-              inputMode='numeric'
-              pattern='[0-9]*'
-              value={formRef[formKey]}
-              onChange={handleChange}
-              onKeyDown={handleKeyPress}
-              className={
-                showError || showMaxMinError ? 'wrong-animation border-red-main' : ''
-              }
-              minLength={1}
-              autoFocus
-            />
+<TextInput
+  type='text'
+  inputMode={isDecimalAllowed ? 'decimal' : 'numeric'}
+  value={formRef[formKey]}
+  onChange={handleChange}
+  onKeyDown={handleKeyPress}
+  className={showError || showMaxMinError ? 'wrong-animation border-red-main' : ''}
+  minLength={1}
+  autoFocus
+  maxLength={formKey === 'postalCode' ? 4 : undefined}
+/>
 
             {showMaxMinError && (
               <div className='p-2 w-full md:w-full rounded-lg inline-flex justify-center md:justify-start text-red-main bg-red-light'>

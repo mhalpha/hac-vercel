@@ -51,13 +51,8 @@ const AlreadyHeartAttack: React.FC<OptionFormProps> = ({
       </div>
       <div className='w-full md:max-w-[70%] flex flex-col items-center'>
         <h1 className='text-lg md:text-xl text-center'>
-          Unfortunately, this calculator is not suitable for individuals who have already
-          experienced a heart attack or stroke, or have been diagnosed with heart disease.
-          We recommend consulting your doctor for personalised guidance on managing your
-          heart condition.<br></br> <br></br> Additionally, you can join our <a className='text-[#C8102E]' href='https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fgroups%2Fmyheartmylifecommunity' target="_blank">MyHeart, MyLife online
-          community</a>. This safe online group provides a supportive space where individuals
-          living with heart conditions can share experiences, offer and receive support,
-          and discover ways to lead a heart-healthy life.
+        Unfortunately, this calculator is not suitable for people who have already had a heart attack or stroke, or been diagnosed with heart disease. Speak to your doctor for specific advice about managing your heart condition.<br></br> <br></br> If you have heart disease or are caring for someone who does, you might like to join our free <a className='text-[#C8102E]' href='https://www.myheartmylife.org.au' target="_blank">MyHeart MyLife digital support program
+        </a> for information and support tailored to your needs.
         </h1>
         <button
           onClick={handleRestart}
