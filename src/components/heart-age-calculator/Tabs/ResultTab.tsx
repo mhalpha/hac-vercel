@@ -7,7 +7,7 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import { IoArrowDownOutline, IoArrowUpOutline } from 'react-icons/io5';
-import { sendGTMEvent } from '@next/third-parties/google'
+import { sendGTMEvent } from '@next/third-parties/google';
 
 const ResultTab = ({
   formRef,
@@ -25,31 +25,6 @@ const ResultTab = ({
   const [showResults, setShowResults] = useState<boolean>(false);
   const handleGetResultsClick = () => {
     setShowResults(true);
-  };
-  const handleClick = () => {
-    setFormRef({
-      heartAttack: null,
-      sex: null,
-      age: null,
-      smoke: null,
-      height: null,
-      weight: null,
-      heartDisease: null,
-      diabetes: null,
-      bloodPressureMeditation: null,
-      bloodPressureLevel: null,
-      systolicBloodPressureLevel: null,
-      diastolicBloodPressure: null,
-      cholesterolLevel: null,
-      TotalCholesterolLevel: null,
-      HBLCholesterolLevel: null,
-      postalCode: null,
-      wantReport: null,
-      privacyAcceptance: null,
-    });
-    steps.current = 0;
-    uiRefresh(Date.now());
-    // window.location.reload();
   };
   const handleForward = (): void => {
     steps.current = steps.current + 1;
@@ -110,7 +85,6 @@ const ResultTab = ({
 
       {showResults && (
         <Result
-          handleRestartClick={handleClick}
           uiRefresh={uiRefresh}
           formRef={formRef}
           steps={steps}
@@ -120,4 +94,5 @@ const ResultTab = ({
     </article>
   );
 };
+
 export default ResultTab;

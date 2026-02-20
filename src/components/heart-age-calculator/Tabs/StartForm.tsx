@@ -1,7 +1,6 @@
 import React, { SetStateAction, useEffect } from 'react';
 import { Slide } from 'react-awesome-reveal';
-import { sendGTMEvent } from '@next/third-parties/google'
-
+import { sendGTMEvent } from '@next/third-parties/google';
 
 const StartForm = ({
   uiRefresh,
@@ -12,7 +11,6 @@ const StartForm = ({
 }) => {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      // const key = event.key.toUpperCase();
       if (event.key === 'Enter') {
         handleClick();
       }
@@ -23,34 +21,41 @@ const StartForm = ({
     };
     //eslint-disable-next-line
   }, []);
+
   const handleClick = () => {
     steps.current = 1;
     uiRefresh(Date.now());
   };
+
   const handleButtonKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {
-      // Call handleForward function when Enter key is pressed
       handleClick();
     }
   };
+
   const eventData = {
     event: 'navigate_form',
     form_name: 'heart age calculator',
     form_stage: 'start',
   };
+
   return (
     <Slide direction='up' delay={100}>
       <div className='w-full h-full flex flex-col items-center gap-8 md:gap-4'>
         <div className='space-y-4'>
           <h1 className='font-bold text-2xl text-center'>
-            Check your estimated heart age now by answering these simple questions.
+            Get your Heart Age in under 3 minutes
           </h1>
-          <ul className='ml-4'>
-            <li className='text-center'>
-              We can send you more information about your heart age result, as well as
-              tips to maintain a healthy heart.
-            </li>
-          </ul>
+          <p className='text-center'>
+            The Heart Age Calculator gives you an estimate of your heart age based on
+            key risk factors for heart disease. Your risk of a heart attack or stroke
+            may be higher if your heart age is greater than your actual age.
+          </p>
+          <p className='text-center font-semibold'>
+            TIP: To get a more accurate estimate, it helps to have your most recent
+            blood pressure and cholesterol levels – but you can still complete the
+            calculator without it.
+          </p>
         </div>
         <div className=''>
           <button
@@ -59,10 +64,15 @@ const StartForm = ({
               handleClick();
               sendGTMEvent(eventData);
             }}
-            className='py-2 px-6 rounded-3xl text-xl  bg-red-main text-white font-bold mt-2'>
+            className='py-2 px-6 rounded-3xl text-xl bg-red-main text-white font-bold mt-2'>
             Start
           </button>
         </div>
+        <p className='text-center text-sm text-gray-600'>
+          Disclaimer: This calculator is intended for people aged 35–75 who do not
+          have heart disease. If you are over the age of 75, we recommend discussing
+          your heart health with your GP. To learn more, visit FAQs.
+        </p>
       </div>
     </Slide>
   );

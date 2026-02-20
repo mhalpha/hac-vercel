@@ -59,18 +59,7 @@ const Heart_Age_Calculator: React.FC = () => {
     sbpAvg: {},
     final: {},
   });
-  // useEffect(() => {
-  //   const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-  //     const confirmationMessage =
-  //       'You have unsaved changes. Are you sure you want to leave?';
-  //     e.returnValue = confirmationMessage;
-  //     return confirmationMessage;
-  //   };
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, []);
+
   useEffect(() => {
     setLookupTables((prevLookupTables) => ({
       ...prevLookupTables,
@@ -88,30 +77,20 @@ const Heart_Age_Calculator: React.FC = () => {
       final: finalLookUp,
     }));
   }, []);
-  useEffect(() => {
-    let totalSteps = 13;
-    if (formRef.cholesterolLevel && formRef.bloodPressureLevel) {
-      if (formRef.wantReport) {
-        setTotalNumberOfSteps(totalSteps + 8);
-      } else {
-        setTotalNumberOfSteps(totalSteps + 4);
-      }
-    } else if (formRef.cholesterolLevel || formRef.bloodPressureLevel) {
-      if (formRef.wantReport) {
-        setTotalNumberOfSteps(totalSteps + 6);
-      } else {
-        setTotalNumberOfSteps(totalSteps + 2);
-      }
-    } else {
-      if (formRef.wantReport) {
-        setTotalNumberOfSteps(totalSteps + 4);
-      } else {
-        setTotalNumberOfSteps(totalSteps);
-      }
-    }
-  }, [formRef.cholesterolLevel, formRef.bloodPressureLevel, formRef.wantReport]);
 
- 
+  useEffect(() => {
+    // WantReportTab step numbers by path:
+    // PATH A (!bp && !chol):  WantReportTab at step 13 → total 13
+    // PATH B/C (bp XOR chol): WantReportTab at step 15 → total 15
+    // PATH D (bp && chol):    WantReportTab at step 17 → total 17
+    if (formRef.cholesterolLevel && formRef.bloodPressureLevel) {
+      setTotalNumberOfSteps(17);
+    } else if (formRef.cholesterolLevel || formRef.bloodPressureLevel) {
+      setTotalNumberOfSteps(15);
+    } else {
+      setTotalNumberOfSteps(13);
+    }
+  }, [formRef.cholesterolLevel, formRef.bloodPressureLevel]);
 
   return (
     <Wrapper Style='w-full h-[100vh-80px] pt-2 md:pt-4'>
@@ -120,20 +99,7 @@ const Heart_Age_Calculator: React.FC = () => {
           <div className='w-full flex justify-center md:max-w-[70%] mx-auto'>
             {steps.current > 0 &&
               !formRef.heartAttack &&
-              (formRef.bloodPressureLevel &&
-              formRef.cholesterolLevel &&
-              formRef.wantReport
-                ? steps.current <= 21
-                : formRef.bloodPressureLevel ||
-                  (formRef.cholesterolLevel && formRef.wantReport)
-                ? steps.current <= 19
-                : formRef.bloodPressureLevel && formRef.cholesterolLevel
-                ? steps.current <= 17
-                : formRef.bloodPressureLevel || formRef.cholesterolLevel
-                ? steps.current <= 15
-                : formRef.wantReport
-                ? steps.current <= 17
-                : steps.current <= 13) && (
+              steps.current <= totalNumberOfSteps && (
                 <Progress
                   label={`Discover your heart's age`}
                   classNames={{

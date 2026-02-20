@@ -12,13 +12,11 @@ const Result = ({
   steps,
   uiRefresh,
   lookupTables,
-  handleRestartClick,
 }: {
   formRef: any;
   steps: React.MutableRefObject<number>;
   uiRefresh: Dispatch<SetStateAction<number>>;
   lookupTables: LookupTables;
-  handleRestartClick: () => void;
 }) => {
   const pageInit = useRef<boolean>(false);
   const [, uiSubRefresh] = useState(Date.now());
@@ -171,7 +169,7 @@ const Result = ({
         console.log(lookupTables.final[finalResult]);
         const apiUrl =
           'https://prod-07.australiasoutheast.logic.azure.com:443/workflows/7029692bc9c7478bb177c7f2669e5f40/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yX289pvxnzb74V5Mmc-zBFyDiYJMB62bN9wZkcmCwrE';
-        const postData = {
+        const postData: Record<string, any> = {
           Age: parseInt(age),
           Sex: sex,
           Smoke: smoke,
@@ -223,6 +221,7 @@ const Result = ({
     userInformation.genderCategory,
     userInformation.selectedGender,
   ]);
+
   if (!pageInit.current) {
     return (
       <div className='flex w-full h-full justify-center items-center'>
@@ -244,7 +243,7 @@ const Result = ({
         <div>
           {matchingScores.final < parseInt(formRef.age) && (
             <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-lg'>
-              This is BELOW your actual age. <br></br>
+              This is BELOW your actual age. <br />
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
               appointment. If you are aged 45 and over and do not already have heart disease, we recommend you see your doctor for a Heart Health Check. Some people may be eligible earlier, including First Nations peoples from 30 years, and from 35 years for people living with diabetes.
@@ -252,7 +251,7 @@ const Result = ({
           )}
           {matchingScores.final > parseInt(formRef.age) && (
             <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-lg'>
-              This is ABOVE your actual age.<br></br>
+              This is ABOVE your actual age.<br />
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
               appointment. If you are aged 45 and over and do not already have heart disease, we recommend you see your doctor for a Heart Health Check. Some people may be eligible earlier, including First Nations peoples from 30 years, and from 35 years for people living with diabetes.
@@ -260,7 +259,7 @@ const Result = ({
           )}
           {matchingScores.final === parseInt(formRef.age) && (
             <h6 className='text-center text-[#444444] font-semibold text-lg  md:text-lg'>
-              This is EQUAL to your actual age.<br></br>
+              This is EQUAL to your actual age.<br />
               <br /> There are many things you can do to improve your heart health.
               Consider speaking with your doctor about your results at your next
               appointment. If you are aged 45 and over and do not already have heart disease, we recommend you see your doctor for a Heart Health Check. Some people may be eligible earlier, including First Nations peoples from 30 years, and from 35 years for people living with diabetes.
@@ -268,11 +267,13 @@ const Result = ({
           )}
         </div>
         <div className='flex justify-center items-center gap-2 '>
-          <button
-            onClick={handleRestartClick}
-            className='bg-red-main text-white font-bold px-6 rounded-3xl text-xl py-2 mt-4'>
-            Restart
-          </button>
+          <a
+            href='https://www.healthdirect.gov.au/australian-health-services/guided-search/general-practice'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='bg-red-main text-white font-bold px-6 rounded-3xl text-xl py-2 mt-4 inline-block'>
+            Book a GP
+          </a>
         </div>
       </Fade>
     );

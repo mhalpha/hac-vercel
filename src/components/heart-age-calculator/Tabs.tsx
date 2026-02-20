@@ -9,8 +9,6 @@ import ResultTab from './Tabs/ResultTab';
 import { LookupTables, formList } from '../../../types/Global';
 import AlreadyHeartAttack from './Tabs/AlreadyHeartAttack';
 import WantReportTab from './Tabs/WantReportTab';
-import CustomInputText from './Tabs/CustomInputTextForm';
-import PrivacyOptionForm from './Tabs/PrivacyOptioinFormTab';
 
 interface TabsProps {
   uiRefresh: React.Dispatch<SetStateAction<number>>;
@@ -38,16 +36,15 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
   const handleFormRefresh = () => {
     uiRefresh(Date.now());
   };
-  const handleBackward = (): void => {
-    steps.current = steps.current - 1;
-    uiRefresh(Date.now());
-  };
+
   return (
     <div className={`w-full h-full flex flex-col md:max-w-[70%] mx-auto`}>
       {(() => {
         switch (steps.current) {
+          // ── Steps 0–12: identical to original ───────────────────────────
           case 0:
             return <StartForm key={steps.current} steps={steps} uiRefresh={uiRefresh} />;
+
           case 1:
             return (
               <OptionForm
@@ -56,39 +53,38 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 setFormRef={setFormRef}
                 formKey='heartAttack'
                 steps={steps}
-                question='Have you had a heart attack or stroke, or do you have heart
-              disease?'
+                question='Have you had a heart attack or stroke, or do you have heart disease?'
                 errorText='Please make a selection.'
                 uiRefresh={uiRefresh}
                 options={formOptions.HeartAttackOptions}
               />
             );
+
           case 2:
-            let componentRender;
             if (formRef['heartAttack'] === true) {
-              componentRender = (
+              return (
                 <AlreadyHeartAttack
-                  setFormRef={setFormRef}
-                  uiRefresh={uiRefresh}
-                  steps={steps}
-                />
-              );
-            } else {
-              componentRender = (
-                <ImageOptionForm
                   key={steps.current}
-                  formRef={formRef}
                   setFormRef={setFormRef}
-                  formKey='sex'
-                  steps={steps}
-                  question='What is your sex?'
-                  errorText='Please make a selection.'
                   uiRefresh={uiRefresh}
-                  options={formOptions.GenderOptions}
+                  steps={steps}
                 />
               );
             }
-            return componentRender;
+            return (
+              <ImageOptionForm
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='sex'
+                steps={steps}
+                question='What is your sex?'
+                errorText='Please make a selection.'
+                uiRefresh={uiRefresh}
+                options={formOptions.GenderOptions}
+              />
+            );
+
           case 3:
             return (
               <InputTextFrom
@@ -107,6 +103,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 errorCategory='aged'
               />
             );
+
           case 4:
             return (
               <OptionForm
@@ -121,6 +118,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 options={formOptions.SmokeOptions}
               />
             );
+
           case 5:
             return (
               <InputTextFrom
@@ -140,6 +138,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 errorCategory='weighted'
               />
             );
+
           case 6:
             return (
               <InputTextFrom
@@ -159,6 +158,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 maxValue={220}
               />
             );
+
           case 7:
             return (
               <OptionForm
@@ -188,6 +188,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 options={formOptions.SmokeOptions}
               />
             );
+
           case 9:
             return (
               <OptionForm
@@ -202,6 +203,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 options={formOptions.SmokeOptions}
               />
             );
+
           case 10:
             return (
               <OptionForm
@@ -217,10 +219,10 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 callback={handleBloodPressureLevel}
               />
             );
+
           case 11:
-            let componentToRender;
             if (formRef['bloodPressureLevel']) {
-              componentToRender = (
+              return (
                 <InputTextFrom
                   key={steps.current}
                   formRef={formRef}
@@ -239,27 +241,25 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorCategory='SBL'
                 />
               );
-            } else {
-              componentToRender = (
-                <OptionForm
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='cholesterolLevel'
-                  steps={steps}
-                  question='Do you know your cholesterol levels?'
-                  errorText='Please make a selection.'
-                  uiRefresh={uiRefresh}
-                  options={formOptions.SmokeOptions}
-                  callback={handleBloodPressureLevel}
-                />
-              );
             }
-            return componentToRender;
+            return (
+              <OptionForm
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='cholesterolLevel'
+                steps={steps}
+                question='Do you know your cholesterol levels?'
+                errorText='Please make a selection.'
+                uiRefresh={uiRefresh}
+                options={formOptions.SmokeOptions}
+                callback={handleBloodPressureLevel}
+              />
+            );
+
           case 12:
-            let componentToShow;
             if (formRef['bloodPressureLevel']) {
-              componentToShow = (
+              return (
                 <InputTextFrom
                   key={steps.current}
                   formRef={formRef}
@@ -276,13 +276,11 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   maxValue={150}
                   limitUnit='mmHg.'
                   errorCategory='DBL'
-                  
                 />
               );
-              return componentToShow;
             }
             if (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel']) {
-              componentToShow = (
+              return (
                 <InputTextFrom
                   key={steps.current}
                   formRef={formRef}
@@ -302,32 +300,30 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorCategory='TCL'
                 />
               );
-              return componentToShow;
             }
-            if (!formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) {
-              componentToShow = (
-                <InputTextFrom
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='postalCode'
-                  steps={steps}
-                  question='Lastly, what is your postcode?'
-                  label={`This helps us to understand Australia's heart health across regions and is completely anonymous`}
-                  valueFormat={``}
-                  errorText='Please fill this in.'
-                  uiRefresh={uiRefresh}
-                  limit={false}
+            // !bp && !chol — PATH A
+            return (
+              <InputTextFrom
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='postalCode'
+                steps={steps}
+                question='Lastly, what is your postcode?'
+                label={`This helps us to understand Australia's heart health across regions and is completely anonymous`}
+                valueFormat={``}
+                errorText='Please fill this in.'
+                uiRefresh={uiRefresh}
+                limit={false}
+              />
+            );
 
-                />
-              );
-              return componentToShow;
-            }
+          // ── Steps 13+ updated: WantReportTab goes directly to ResultTab ─
 
           case 13:
-            let componentToVisible;
+            // !bp && chol=true → HDL
             if (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel']) {
-              componentToVisible = (
+              return (
                 <InputTextFrom
                   key={steps.current}
                   formRef={formRef}
@@ -347,11 +343,10 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorCategory='HDL'
                 />
               );
-              return componentToVisible;
             }
-
+            // bp=true → cholesterolLevel question
             if (formRef['bloodPressureLevel']) {
-              componentToVisible = (
+              return (
                 <OptionForm
                   key={steps.current}
                   formRef={formRef}
@@ -365,213 +360,38 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   callback={handleBloodPressureLevel}
                 />
               );
-              return componentToVisible;
             }
-            if (!formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) {
-              return (
-                <WantReportTab
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='wantReport'
-                  steps={steps}
-                  question=''
-                  errorText='Please make a selection.'
-                  uiRefresh={uiRefresh}
-                  options={formOptions.ReportOptions}
-                  callback={handleBloodPressureLevel}
-                />
-              );
-            }
+            // !bp && !chol — PATH A: WantReportTab
+            return (
+              <WantReportTab
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='wantReport'
+                steps={steps}
+                uiRefresh={uiRefresh}
+              />
+            );
 
           case 14:
-            if (!formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) {
-              if (formRef['wantReport']) {
-                return (
-                  <CustomInputText
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='firstName'
-                    steps={steps}
-                    question={`Great! Let's start with your `}
-                    label={``}
-                    boldWord={`first name`}
-                    errorText='Please fill this in.'
-                    uiRefresh={uiRefresh}
-                    limit={false}
-                  />
-                );
-              } else {
-                return (
-                  <ResultTab
-                    setFormRef={setFormRef}
-                    key={steps.current}
-                    uiRefresh={uiRefresh}
-                    formRef={formRef}
-                    steps={steps}
-                    lookupTables={lookupTables}
-                  />
-                );
-              }
-            }
-            if (
-              (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
-              (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
-            ) {
-              return (
-                <InputTextFrom
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='postalCode'
-                  steps={steps}
-                  question='Lastly, what is your postcode?'
-                  label={`This helps us to understand Australia’s heart health across regions and is completely anonymous`}
-                  valueFormat={``}
-                  errorText='Please fill this in.'
-                  uiRefresh={uiRefresh}
-                  limit={false}
-                />
-              );
-            }
-            if (formRef['bloodPressureLevel'] && formRef['cholesterolLevel']) {
-              return (
-                <InputTextFrom
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='TotalCholesterolLevel'
-                  steps={steps}
-                  question='What is your total cholesterol level?'
-                  label='Please enter a value between'
-                  valueFormat={` mmol/L.`}
-                  errorText='Please enter a value.'
-                  uiRefresh={uiRefresh}
-                  limit={true}
-                  minValue={2.0}
-                  maxValue={10.5}
-                  isDecimalAllowed={true}
-                  limitUnit={`mmol/L.`}
-                  errorCategory='TCL'
-                />
-              );
-            }
-
-          case 15:
+            // PATH A (!bp && !chol) → ResultTab (wantReport already captured in WantReportTab)
             if (!formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) {
               return (
-                <CustomInputText
+                <ResultTab
                   key={steps.current}
-                  formRef={formRef}
                   setFormRef={setFormRef}
-                  formKey='lastName'
-                  steps={steps}
-                  question={`${formRef['firstName']}, what's your `}
-                  label={``}
-                  boldWord={`last name`}
-                  errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
-                  limit={false}
+                  formRef={formRef}
+                  steps={steps}
+                  lookupTables={lookupTables}
                 />
               );
             }
+            // bp XOR chol → postalCode
             if (
               (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
               (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
             ) {
-              return (
-                <WantReportTab
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='wantReport'
-                  steps={steps}
-                  question=''
-                  errorText='Please make a selection.'
-                  uiRefresh={uiRefresh}
-                  options={formOptions.ReportOptions}
-                  callback={handleBloodPressureLevel}
-                />
-              );
-            }
-
-            if (formRef['bloodPressureLevel'] && formRef['cholesterolLevel']) {
-              return (
-                <InputTextFrom
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='HBLCholesterolLevel'
-                  steps={steps}
-                  question='What is your HDL cholesterol?'
-                  label='Please enter the value between'
-                  valueFormat={` mmol/L`}
-                  errorText='Please enter a value.'
-                  uiRefresh={uiRefresh}
-                  limit={true}
-                  minValue={0.1}
-                  maxValue={6.4}
-                  isDecimalAllowed={true}
-                  limitUnit='mmol/L.'
-                  errorCategory='HDL'
-                />
-              );
-            }
-
-          case 16:
-            if (
-              (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
-              (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
-            ) {
-              if (formRef['wantReport']) {
-                return (
-                  <CustomInputText
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='firstName'
-                    steps={steps}
-                    question={`Great! Let's start with your `}
-                    label={``}
-                    boldWord={`first name`}
-                    errorText='Please fill this in.'
-                    uiRefresh={uiRefresh}
-                    limit={false}
-                  />
-                );
-              } else {
-                return (
-                  <ResultTab
-                    setFormRef={setFormRef}
-                    key={steps.current}
-                    uiRefresh={uiRefresh}
-                    formRef={formRef}
-                    steps={steps}
-                    lookupTables={lookupTables}
-                  />
-                );
-              }
-            }
-            if (!formRef['cholesterolLevel'] && !formRef['bloodPressureLevel']) {
-              return (
-                <CustomInputText
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='email'
-                  steps={steps}
-                  question={`What's the best email address for us to send your heart age report to`}
-                  label={``}
-                 
-                  placeholder='name@example.com'
-                  errorText='Please enter a correct email.'
-                  uiRefresh={uiRefresh}
-                  limit={false}
-                />
-              );
-            }
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
               return (
                 <InputTextFrom
                   key={steps.current}
@@ -585,64 +405,37 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   errorText='Please fill this in.'
                   uiRefresh={uiRefresh}
                   limit={false}
-                  callback={handleFormRefresh}
                 />
               );
             }
-          case 17:
+            // bp && chol → TotalCholesterol
+            return (
+              <InputTextFrom
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='TotalCholesterolLevel'
+                steps={steps}
+                question='What is your total cholesterol level?'
+                label='Please enter a value between'
+                valueFormat={` mmol/L.`}
+                errorText='Please enter a value.'
+                uiRefresh={uiRefresh}
+                limit={true}
+                minValue={2.0}
+                maxValue={10.5}
+                isDecimalAllowed={true}
+                limitUnit={`mmol/L.`}
+                errorCategory='TCL'
+              />
+            );
+
+          case 15:
+            // bp XOR chol — PATHS B/C: WantReportTab
             if (
               (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
               (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
             ) {
-              if (formRef['wantReport']) {
-                return (
-                  <CustomInputText
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='lastName'
-                    steps={steps}
-                    question={`${formRef['firstName']}, what's your `}
-                    label={``}
-                    boldWord={`last name`}
-                    errorText='Please fill this in.'
-                    uiRefresh={uiRefresh}
-                    limit={false}
-                  />
-                );
-              }
-            }
-            if (!formRef['cholesterolLevel'] && !formRef['bloodPressureLevel']) {
-              if (formRef['wantReport']) {
-                return (
-                  <PrivacyOptionForm
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='privacyAcceptance'
-                    steps={steps}
-                    question=''
-                    errorText='Please agree to the terms & conditions.'
-                    uiRefresh={uiRefresh}
-                    options={formOptions.PrivacyAcceptanceOptions}
-                    callback={handleBloodPressureLevel}
-                  />
-                );
-              } else {
-                return (
-                  <ResultTab
-                    setFormRef={setFormRef}
-                    key={steps.current}
-                    uiRefresh={uiRefresh}
-                    formRef={formRef}
-                    steps={steps}
-                    lookupTables={lookupTables}
-                  />
-                );
-              }
-            }
-
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
               return (
                 <WantReportTab
                   key={steps.current}
@@ -650,179 +443,42 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                   setFormRef={setFormRef}
                   formKey='wantReport'
                   steps={steps}
-                  question=''
-                  errorText='Please make a selection.'
                   uiRefresh={uiRefresh}
-                  options={formOptions.ReportOptions}
-                  callback={handleBloodPressureLevel}
                 />
               );
             }
-          case 18:
-            if (
-              (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
-              (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
-            ) {
-              if (formRef['wantReport']) {
-                return (
-                  <CustomInputText
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='email'
-                    steps={steps}
-                    question={`What's the best email address for us to send your heart age report to`}
-                    label={``}
-                    
-                    placeholder='name@example.com'
-                    errorText='Please enter a correct email.'
-                    uiRefresh={uiRefresh}
-                    limit={false}
-                  />
-                );
-              }
-            }
-            if (!formRef['cholesterolLevel'] && !formRef['bloodPressureLevel']) {
-              return (
-                <ResultTab
-                  setFormRef={setFormRef}
-                  key={steps.current}
-                  uiRefresh={uiRefresh}
-                  formRef={formRef}
-                  steps={steps}
-                  lookupTables={lookupTables}
-                />
-              );
-            }
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
-              if (formRef['wantReport']) {
-                return (
-                  <CustomInputText
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='firstName'
-                    steps={steps}
-                    question={`Great! Let's start with your `}
-                    label={``}
-                    boldWord={`first name`}
-                    errorText='Please fill this in.'
-                    uiRefresh={uiRefresh}
-                    limit={false}
-                  />
-                );
-              } else {
-                return (
-                  <ResultTab
-                    setFormRef={setFormRef}
-                    key={steps.current}
-                    uiRefresh={uiRefresh}
-                    formRef={formRef}
-                    steps={steps}
-                    lookupTables={lookupTables}
-                  />
-                );
-              }
-            }
+            // bp && chol → HDL
+            return (
+              <InputTextFrom
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='HBLCholesterolLevel'
+                steps={steps}
+                question='What is your HDL cholesterol?'
+                label='Please enter the value between'
+                valueFormat={` mmol/L`}
+                errorText='Please enter a value.'
+                uiRefresh={uiRefresh}
+                limit={true}
+                minValue={0.1}
+                maxValue={6.4}
+                isDecimalAllowed={true}
+                limitUnit='mmol/L.'
+                errorCategory='HDL'
+              />
+            );
 
-          case 19:
+          case 16:
+            // PATHS B/C → ResultTab (wantReport already captured in WantReportTab)
             if (
               (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
               (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
             ) {
-              if (formRef['wantReport']) {
-                return (
-                  <PrivacyOptionForm
-                    key={steps.current}
-                    formRef={formRef}
-                    setFormRef={setFormRef}
-                    formKey='privacyAcceptance'
-                    steps={steps}
-                    question=''
-                    errorText='Please agree to the terms & conditions.'
-                    uiRefresh={uiRefresh}
-                    options={formOptions.PrivacyAcceptanceOptions}
-                    callback={handleBloodPressureLevel}
-                  />
-                );
-              }
-            }
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
-              return (
-                <CustomInputText
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='lastName'
-                  steps={steps}
-                  question={`${formRef['firstName']}, what's your `}
-                  label={``}
-                  boldWord={`last name`}
-                  errorText='Please fill this in.'
-                  uiRefresh={uiRefresh}
-                  limit={false}
-                />
-              );
-            }
-          case 20:
-            if (
-              (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
-              (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
-            ) {
-              if (formRef['wantReport']) {
-                return (
-                  <ResultTab
-                    setFormRef={setFormRef}
-                    key={steps.current}
-                    uiRefresh={uiRefresh}
-                    formRef={formRef}
-                    steps={steps}
-                    lookupTables={lookupTables}
-                  />
-                );
-              }
-            }
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
-              return (
-                <CustomInputText
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='email'
-                  steps={steps}
-                  question={`What's the best email address for us to send your heart age report to`}
-                  label={``}
-                  
-                  placeholder='name@example.com'
-                  errorText='Please enter a correct email.'
-                  uiRefresh={uiRefresh}
-                  limit={false}
-                />
-              );
-            }
-          case 21:
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
-              return (
-                <PrivacyOptionForm
-                  key={steps.current}
-                  formRef={formRef}
-                  setFormRef={setFormRef}
-                  formKey='privacyAcceptance'
-                  steps={steps}
-                  question=''
-                  errorText='Please agree to the terms & conditions.'
-                  uiRefresh={uiRefresh}
-                  options={formOptions.PrivacyAcceptanceOptions}
-                  callback={handleBloodPressureLevel}
-                />
-              );
-            }
-          case 22:
-            if (formRef['cholesterolLevel'] && formRef['bloodPressureLevel']) {
               return (
                 <ResultTab
-                  setFormRef={setFormRef}
                   key={steps.current}
+                  setFormRef={setFormRef}
                   uiRefresh={uiRefresh}
                   formRef={formRef}
                   steps={steps}
@@ -830,6 +486,50 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
+            // bp && chol → postalCode
+            return (
+              <InputTextFrom
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='postalCode'
+                steps={steps}
+                question='Lastly, what is your postcode?'
+                label={`This helps us to understand Australia's heart health across regions and is completely anonymous`}
+                valueFormat={``}
+                errorText='Please fill this in.'
+                uiRefresh={uiRefresh}
+                limit={false}
+                callback={handleFormRefresh}
+              />
+            );
+
+          case 17:
+            // PATH D (bp && chol): WantReportTab
+            return (
+              <WantReportTab
+                key={steps.current}
+                formRef={formRef}
+                setFormRef={setFormRef}
+                formKey='wantReport'
+                steps={steps}
+                uiRefresh={uiRefresh}
+              />
+            );
+
+          case 18:
+            // PATH D → ResultTab (wantReport already captured in WantReportTab)
+            return (
+              <ResultTab
+                key={steps.current}
+                setFormRef={setFormRef}
+                uiRefresh={uiRefresh}
+                formRef={formRef}
+                steps={steps}
+                lookupTables={lookupTables}
+              />
+            );
+
           default:
             return null;
         }
