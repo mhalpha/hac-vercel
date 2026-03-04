@@ -1,7 +1,6 @@
 import React, { SetStateAction, useState } from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { TabProps, formList } from '../../../../types/Global';
-import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import { IoArrowDownOutline } from 'react-icons/io5';
 import { IoArrowUpOutline } from 'react-icons/io5';
@@ -78,9 +77,7 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
 
   return (
     <article className='w-full relative'>
-      <div className='overflow-hidden'>
-      <Slide className='w-full' direction='up' delay={10 * steps.current}>
-        <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
+      <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
           <div className='flex items-start'>
             <p className='flex gap-1 items-center'>
               {steps.current}
@@ -134,6 +131,11 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
               className='bg-red-main text-white font-bold px-6 rounded-3xl py-2 text-lg w-fit'>
               Get report
             </button>
+            <button
+              onClick={handleNoThanks}
+              className='text-gray-600 underline text-base hover:text-gray-800 text-left'>
+              No thanks, continue to see my result
+            </button>
             <p className='text-sm text-gray-600'>
               By selecting &apos;Get Report&apos; you consent to your information being collected and
               used in accordance with the{' '}
@@ -154,14 +156,8 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
               </a>
               .
             </p>
-            <button
-              onClick={handleNoThanks}
-              className='text-gray-600 underline text-base hover:text-gray-800 text-left'>
-              No thanks, continue to see my result
-            </button>
           </div>
         </div>
-      </Slide>
       </div>
       <div className='bg-white flex gap-[0.10rem] justify-end text-2xl absolute bottom-0 right-2'>
         <ArrowButton

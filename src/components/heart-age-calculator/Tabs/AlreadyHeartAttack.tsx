@@ -29,11 +29,11 @@ const AlreadyHeartAttack: React.FC<OptionFormProps> = ({
           and discover ways to lead a heart-healthy life.
         </h1>
         <a
-          href='https://www.healthdirect.gov.au/find-a-health-service'
+          href='https://www.healthdirect.gov.au/australian-health-services'
           target='_blank'
           rel='noopener noreferrer'
           className='bg-red-main text-white font-bold px-6 rounded-3xl text-2xl py-2 mt-4 inline-block'>
-          Find a health service
+          Book a GP
         </a>
       </div>
     </article>

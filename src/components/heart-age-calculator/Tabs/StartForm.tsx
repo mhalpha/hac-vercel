@@ -1,5 +1,4 @@
 import React, { SetStateAction, useEffect } from 'react';
-import { Slide } from 'react-awesome-reveal';
 import { sendGTMEvent } from '@next/third-parties/google';
 
 const StartForm = ({
@@ -40,9 +39,7 @@ const StartForm = ({
   };
 
   return (
-    <div className='overflow-hidden'>
-    <Slide direction='up' delay={100}>
-      <div className='w-full h-full flex flex-col items-center gap-8 md:gap-4'>
+    <div className='w-full h-full flex flex-col items-center gap-8 md:gap-4'>
         <div className='space-y-4'>
           <h1 className='font-bold text-2xl text-center'>
             Get your Heart Age in under 3 minutes
@@ -75,7 +72,6 @@ const StartForm = ({
           heart health with your GP. To learn more, visit FAQs below.
         </p>
       </div>
-    </Slide>
     </div>
   );
 };
