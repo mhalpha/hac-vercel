@@ -46,9 +46,9 @@ const ResultTab = ({
         showResults ? 'justify-start' : 'justify-start'
       } items-center `}>
       {!showResults && (
-        <div className='w-full h-[26rem] flex flex-col items-center'>
-          <Slide direction='up' delay={100} className='w-full h-full'>
-            <div className=' flex flex-col md:flex-row gap-4 text-xl'>
+        <div className='w-full flex flex-col items-center'>
+          <Slide direction='up' delay={100} className='w-full'>
+            <div className=' flex flex-col md:flex-row gap-4 text-xl pb-14'>
               <div className='w-full flex flex-col'>
                 <h1 className='font-bold text-xl md:text-4xl text-center'>
                   We have calculated your estimated heart age based on the information you

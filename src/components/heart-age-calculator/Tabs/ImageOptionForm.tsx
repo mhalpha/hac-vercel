@@ -76,9 +76,9 @@ const ImageOptionForm: React.FC<OptionFormProps> = ({
     uiRefresh(Date.now());
   };
   return (
-    <article className='w-full  h-[26rem] relative'>
-      <Slide className='w-full h-full' direction='up' delay={10 * steps.current}>
-        <div className='flex flex-col md:flex-row  gap-4 text-xl'>
+    <article className='w-full relative'>
+      <Slide className='w-full' direction='up' delay={10 * steps.current}>
+        <div className='flex flex-col md:flex-row  gap-4 text-xl pb-14'>
           <div className='flex items-start'>
             <p className='flex gap-1 items-center'>
               {steps.current}
