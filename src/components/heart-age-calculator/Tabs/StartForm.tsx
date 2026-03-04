@@ -40,6 +40,7 @@ const StartForm = ({
   };
 
   return (
+    <div className='overflow-hidden'>
     <Slide direction='up' delay={100}>
       <div className='w-full h-full flex flex-col items-center gap-8 md:gap-4'>
         <div className='space-y-4'>
@@ -75,6 +76,7 @@ const StartForm = ({
         </p>
       </div>
     </Slide>
+    </div>
   );
 };
 

@@ -78,6 +78,7 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
 
   return (
     <article className='w-full relative'>
+      <div className='overflow-hidden'>
       <Slide className='w-full' direction='up' delay={10 * steps.current}>
         <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
           <div className='flex items-start'>
@@ -161,6 +162,7 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
           </div>
         </div>
       </Slide>
+      </div>
       <div className='bg-white flex gap-[0.10rem] justify-end text-2xl absolute bottom-0 right-2'>
         <ArrowButton
           icon={IoArrowUpOutline}

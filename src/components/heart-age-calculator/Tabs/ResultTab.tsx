@@ -47,6 +47,7 @@ const ResultTab = ({
       } items-center `}>
       {!showResults && (
         <div className='w-full flex flex-col items-center'>
+          <div className='overflow-hidden w-full'>
           <Slide direction='up' delay={100} className='w-full'>
             <div className=' flex flex-col md:flex-row gap-4 text-xl pb-14'>
               <div className='w-full flex flex-col'>
@@ -67,6 +68,7 @@ const ResultTab = ({
               </div>
             </div>
           </Slide>
+          </div>
           <div className='bg-white flex gap-[0.10rem] justify-end items-end text-2xl absolute bottom-0 right-2'>
             <ArrowButton
               icon={IoArrowUpOutline}

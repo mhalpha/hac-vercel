@@ -140,6 +140,7 @@ const OptionForm: React.FC<OptionFormProps> = ({
   return (
     <>
       <article className='w-full relative'>
+        <div className='overflow-hidden'>
         <Slide className='w-full' direction='up' delay={10 * steps.current}>
           <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
             <div className='flex items-start'>
@@ -195,6 +196,7 @@ const OptionForm: React.FC<OptionFormProps> = ({
             </div>
           </div>
         </Slide>
+        </div>
 
         <div
           className={`bg-white flex gap-[0.10rem] justify-end text-2xl mt-8 absolute right-2 bottom-0`}>

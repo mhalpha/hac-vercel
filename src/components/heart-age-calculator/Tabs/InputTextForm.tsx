@@ -139,6 +139,7 @@ const InputText: React.FC<InputTextProps> = ({
   return (
     <>
       <article className='w-full relative'>
+        <div className='overflow-hidden'>
         <Slide direction='up' delay={10 * steps.current}>
           <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
             <div className='flex items-start'>
@@ -203,6 +204,7 @@ const InputText: React.FC<InputTextProps> = ({
             </div>
           </div>
         </Slide>
+        </div>
 
         <div className='bg-white flex gap-[0.10rem] justify-end text-2xl absolute bottom-0 right-2'>
           <ArrowButton
@@ -216,7 +218,7 @@ const InputText: React.FC<InputTextProps> = ({
       </article>
 
       <Modal
-        isDismissable={true}
+        isDismissable={false}
         placement='center'
         motionProps={{
           variants: {
@@ -232,11 +234,12 @@ const InputText: React.FC<InputTextProps> = ({
             },
           },
         }}
+        hideCloseButton
         isOpen={openAgePopup}
-        onClose={handleAgePopupClose}
+        onClose={() => {}}
         scrollBehavior='inside'>
         <ModalContent>
-          {(onClose) => (
+          {() => (
             <ModalBody>
               <div className='py-6 space-y-4 flex flex-col items-center'>
                 {agePopupType === 'under35' ? (
@@ -260,11 +263,6 @@ const InputText: React.FC<InputTextProps> = ({
                       className='px-6 rounded-3xl inline-flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
                       Learn more
                     </a>
-                    <button
-                      onClick={onClose}
-                      className='block text-gray-500 underline text-sm mt-2'>
-                      Close
-                    </button>
                   </div>
                 ) : (
                   <div className='space-y-4 text-center'>
@@ -295,11 +293,6 @@ const InputText: React.FC<InputTextProps> = ({
                       className='px-6 rounded-3xl inline-flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
                       Learn more
                     </a>
-                    <button
-                      onClick={onClose}
-                      className='block text-gray-500 underline text-sm mt-2'>
-                      Close
-                    </button>
                   </div>
                 )}
               </div>
