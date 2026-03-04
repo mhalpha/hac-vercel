@@ -253,12 +253,12 @@ const Result = ({
 
       <div className='flex justify-center items-center gap-2'>
         <a
-          href='https://www.healthdirect.gov.au/australian-health-services/guidedsearch/general-practice'
+          href='https://www.healthdirect.gov.au/find-a-health-service'
           target='_blank'
           rel='noopener noreferrer'
           className='bg-red-main text-white font-bold px-6 rounded-3xl text-xl py-2 mt-4 inline-block'
         >
-          Book a GP
+          Find a health service
         </a>
       </div>
     </Fade>

@@ -77,9 +77,9 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
   };
 
   return (
-    <article className='w-full h-[26rem] relative'>
-      <Slide className='w-full h-full' direction='up' delay={10 * steps.current}>
-        <div className='flex flex-col md:flex-row gap-4 text-xl'>
+    <article className='w-full relative'>
+      <Slide className='w-full' direction='up' delay={10 * steps.current}>
+        <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
           <div className='flex items-start'>
             <p className='flex gap-1 items-center'>
               {steps.current}
@@ -128,18 +128,11 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
                 {emailError && <p className='text-red-600 text-sm'>{emailError}</p>}
               </div>
             </div>
-            <div className='flex flex-col sm:flex-row gap-3'>
-              <button
-                onClick={handleGetReport}
-                className='bg-red-main text-white font-bold px-6 rounded-3xl py-2 text-lg'>
-                Get report
-              </button>
-              <button
-                onClick={handleNoThanks}
-                className='border-2 border-gray-500 text-gray-700 font-bold px-6 rounded-3xl py-2 text-lg hover:bg-gray-100'>
-                No thanks, continue to see your result
-              </button>
-            </div>
+            <button
+              onClick={handleGetReport}
+              className='bg-red-main text-white font-bold px-6 rounded-3xl py-2 text-lg w-fit'>
+              Get report
+            </button>
             <p className='text-sm text-gray-600'>
               By selecting &apos;Get Report&apos; you consent to your information being collected and
               used in accordance with the{' '}
@@ -160,6 +153,11 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
               </a>
               .
             </p>
+            <button
+              onClick={handleNoThanks}
+              className='text-gray-600 underline text-base hover:text-gray-800 text-left'>
+              No thanks, continue to see my result
+            </button>
           </div>
         </div>
       </Slide>

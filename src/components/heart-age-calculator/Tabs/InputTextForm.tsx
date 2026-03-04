@@ -138,9 +138,9 @@ const InputText: React.FC<InputTextProps> = ({
 
   return (
     <>
-      <article className='w-full h-[26rem] relative'>
+      <article className='w-full relative'>
         <Slide direction='up' delay={10 * steps.current}>
-          <div className='flex flex-col md:flex-row gap-4 text-xl'>
+          <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
             <div className='flex items-start'>
               <p className='flex gap-1 items-center'>
                 {steps.current}
@@ -216,8 +216,8 @@ const InputText: React.FC<InputTextProps> = ({
       </article>
 
       <Modal
-        isDismissable={false}
-        placement='bottom-center'
+        isDismissable={true}
+        placement='center'
         motionProps={{
           variants: {
             enter: {
@@ -232,14 +232,13 @@ const InputText: React.FC<InputTextProps> = ({
             },
           },
         }}
-        hideCloseButton
         isOpen={openAgePopup}
-        onClose={() => {}}
-        style={{ bottom: '17vh' }}>
+        onClose={handleAgePopupClose}
+        scrollBehavior='inside'>
         <ModalContent>
-          {() => (
+          {(onClose) => (
             <ModalBody>
-              <div className='py-10 space-y-4 flex flex-col items-center'>
+              <div className='py-6 space-y-4 flex flex-col items-center'>
                 {agePopupType === 'under35' ? (
                   <div className='space-y-4 text-center'>
                     <h1 className='font-semibold text-[20px] leading-[28px]'>
@@ -261,6 +260,11 @@ const InputText: React.FC<InputTextProps> = ({
                       className='px-6 rounded-3xl inline-flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
                       Learn more
                     </a>
+                    <button
+                      onClick={onClose}
+                      className='block text-gray-500 underline text-sm mt-2'>
+                      Close
+                    </button>
                   </div>
                 ) : (
                   <div className='space-y-4 text-center'>
@@ -291,6 +295,11 @@ const InputText: React.FC<InputTextProps> = ({
                       className='px-6 rounded-3xl inline-flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
                       Learn more
                     </a>
+                    <button
+                      onClick={onClose}
+                      className='block text-gray-500 underline text-sm mt-2'>
+                      Close
+                    </button>
                   </div>
                 )}
               </div>

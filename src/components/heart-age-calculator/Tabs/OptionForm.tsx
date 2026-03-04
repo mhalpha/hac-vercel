@@ -139,9 +139,9 @@ const OptionForm: React.FC<OptionFormProps> = ({
   };
   return (
     <>
-      <article className='w-full h-[26rem] relative'>
-        <Slide className='w-full h-full' direction='up' delay={10 * steps.current}>
-          <div className='flex flex-col md:flex-row gap-4 text-xl'>
+      <article className='w-full relative'>
+        <Slide className='w-full' direction='up' delay={10 * steps.current}>
+          <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
             <div className='flex items-start'>
               <p className='flex gap-1 items-center'>
                 {steps.current}
@@ -208,8 +208,8 @@ const OptionForm: React.FC<OptionFormProps> = ({
         </div>
       </article>
       <Modal
-        isDismissable={false}
-        placement='bottom-center'
+        isDismissable={true}
+        placement='center'
         motionProps={{
           variants: {
             enter: {
@@ -230,10 +230,9 @@ const OptionForm: React.FC<OptionFormProps> = ({
             },
           },
         }}
-        hideCloseButton
         isOpen={openPopup}
         onClose={() => setOpenPopUp(false)}
-        style={{ bottom: '17vh' }}>
+        scrollBehavior='inside'>
         <ModalContent>
           {(onClose) => (
             <>
