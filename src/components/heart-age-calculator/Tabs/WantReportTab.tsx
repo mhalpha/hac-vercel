@@ -90,8 +90,8 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
           </div>
           <div className='flex flex-col gap-4 w-full md:max-w-xl'>
             <h1 className='text-xl md:text-2xl font-bold text-black'>
-              To receive a copy of your Heart Age Report and free tools to help improve
-              your heart health, enter your details below{' '}
+              To receive your Heart Age Report and free tools to help improve your heart
+              health, enter your details below{' '}
               <span className='font-normal italic text-lg'>(optional)</span>
             </h1>
             <div className='flex flex-col gap-3'>
@@ -137,12 +137,20 @@ const WantReportTab: React.FC<WantReportTabProps> = ({
               <button
                 onClick={handleNoThanks}
                 className='border-2 border-gray-500 text-gray-700 font-bold px-6 rounded-3xl py-2 text-lg hover:bg-gray-100'>
-                No thanks
+                No thanks, continue to see your result
               </button>
             </div>
             <p className='text-sm text-gray-600'>
-              Disclaimer: By selecting &apos;Get Report&apos; you are agreeing to the
-              Heart Foundation{' '}
+              By selecting &apos;Get Report&apos; you consent to your information being collected and
+              used in accordance with the{' '}
+              <a
+                href='https://www.heartfoundation.org.au/heart-age-calculator/privacy-collection-notice'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='underline'>
+                collection notice
+              </a>
+              {' '}and the Heart Foundation{' '}
               <a
                 href='https://www.heartfoundation.org.au/hfps13'
                 target='_blank'

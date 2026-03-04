@@ -41,7 +41,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
     <div className={`w-full h-full flex flex-col md:max-w-[70%] mx-auto`}>
       {(() => {
         switch (steps.current) {
-          // ── Steps 0–12: identical to original ───────────────────────────
+         
           case 0:
             return <StartForm key={steps.current} steps={steps} uiRefresh={uiRefresh} />;
 
@@ -301,7 +301,7 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // !bp && !chol — PATH A
+      
             return (
               <InputTextFrom
                 key={steps.current}
@@ -318,10 +318,9 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
               />
             );
 
-          // ── Steps 13+ updated: WantReportTab goes directly to ResultTab ─
 
           case 13:
-            // !bp && chol=true → HDL
+          
             if (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel']) {
               return (
                 <InputTextFrom
@@ -344,7 +343,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // bp=true → cholesterolLevel question
             if (formRef['bloodPressureLevel']) {
               return (
                 <OptionForm
@@ -361,7 +359,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // !bp && !chol — PATH A: WantReportTab
             return (
               <WantReportTab
                 key={steps.current}
@@ -374,7 +371,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
             );
 
           case 14:
-            // PATH A (!bp && !chol) → ResultTab (wantReport already captured in WantReportTab)
             if (!formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) {
               return (
                 <ResultTab
@@ -387,7 +383,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // bp XOR chol → postalCode
             if (
               (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
               (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
@@ -408,7 +403,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // bp && chol → TotalCholesterol
             return (
               <InputTextFrom
                 key={steps.current}
@@ -431,7 +425,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
             );
 
           case 15:
-            // bp XOR chol — PATHS B/C: WantReportTab
             if (
               (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
               (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
@@ -447,7 +440,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // bp && chol → HDL
             return (
               <InputTextFrom
                 key={steps.current}
@@ -470,7 +462,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
             );
 
           case 16:
-            // PATHS B/C → ResultTab (wantReport already captured in WantReportTab)
             if (
               (formRef['bloodPressureLevel'] && !formRef['cholesterolLevel']) ||
               (!formRef['bloodPressureLevel'] && formRef['cholesterolLevel'])
@@ -486,7 +477,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
                 />
               );
             }
-            // bp && chol → postalCode
             return (
               <InputTextFrom
                 key={steps.current}
@@ -505,7 +495,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
             );
 
           case 17:
-            // PATH D (bp && chol): WantReportTab
             return (
               <WantReportTab
                 key={steps.current}
@@ -518,7 +507,6 @@ const Tabs = ({ formRef, steps, uiRefresh, setFormRef, lookupTables }: TabsProps
             );
 
           case 18:
-            // PATH D → ResultTab (wantReport already captured in WantReportTab)
             return (
               <ResultTab
                 key={steps.current}

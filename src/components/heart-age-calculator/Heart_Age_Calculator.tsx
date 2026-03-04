@@ -79,10 +79,7 @@ const Heart_Age_Calculator: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // WantReportTab step numbers by path:
-    // PATH A (!bp && !chol):  WantReportTab at step 13 → total 13
-    // PATH B/C (bp XOR chol): WantReportTab at step 15 → total 15
-    // PATH D (bp && chol):    WantReportTab at step 17 → total 17
+ 
     if (formRef.cholesterolLevel && formRef.bloodPressureLevel) {
       setTotalNumberOfSteps(17);
     } else if (formRef.cholesterolLevel || formRef.bloodPressureLevel) {
@@ -93,9 +90,9 @@ const Heart_Age_Calculator: React.FC = () => {
   }, [formRef.cholesterolLevel, formRef.bloodPressureLevel]);
 
   return (
-    <Wrapper Style='w-full h-[100vh-80px] pt-2 md:pt-4'>
-      <div className='w-full h-full md:overflow-hidden'>
-        <article className='w-full h-full p-4 pb-0 md:p-4 space-y-4 md:space-y-12'>
+    <Wrapper Style='w-full h-[calc(100vh-80px)] pt-2 md:pt-4'>
+      <div className='w-full h-full md:overflow-hidden flex flex-col justify-center'>
+        <article className='w-full p-4 pb-0 md:p-4 space-y-4 md:space-y-12'>
           <div className='w-full flex justify-center md:max-w-[70%] mx-auto'>
             {steps.current > 0 &&
               !formRef.heartAttack &&

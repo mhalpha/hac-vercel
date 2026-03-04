@@ -114,7 +114,6 @@ const InputText: React.FC<InputTextProps> = ({
     const max = maxValue ?? Number.MAX_SAFE_INTEGER;
     if (limit) {
       if (formRef[formKey] < min || formRef[formKey] > max) {
-        // Age field: show contextual popup instead of inline error
         if (formKey === 'age') {
           const ageVal = parseInt(formRef[formKey]);
           setAgePopupType(ageVal < 35 ? 'under35' : 'over75');
@@ -216,7 +215,6 @@ const InputText: React.FC<InputTextProps> = ({
         </div>
       </article>
 
-      {/* Age out-of-range popup — only shown for the age field */}
       <Modal
         isDismissable={false}
         placement='bottom-center'
@@ -236,7 +234,7 @@ const InputText: React.FC<InputTextProps> = ({
         }}
         hideCloseButton
         isOpen={openAgePopup}
-        onClose={() => setOpenAgePopup(false)}
+        onClose={() => {}}
         style={{ bottom: '17vh' }}>
         <ModalContent>
           {() => (
@@ -247,53 +245,54 @@ const InputText: React.FC<InputTextProps> = ({
                     <h1 className='font-semibold text-[20px] leading-[28px]'>
                       This calculator is designed for people aged 35–75 who do not have
                       heart disease. If you are under 35, it may not estimate your risk
-                      accurately.
+                      accurately and as such you are unable to proceed in using the
+                      calculator. If you are wanting to understand your risk please speak
+                      to your GP.
                     </h1>
                     <p className='text-[16px] leading-[24px] text-[#444444]'>
-                      Preventing heart disease starts with knowing your risk factors and
-                      making positive changes to lower your risk. Most heart attacks and
-                      strokes can be prevented with healthy choices.
+                      To help prevent heart disease, start with knowing your risk factors
+                      and making positive changes to lower your risk. Healthy choices can
+                      help prevent heart attacks and strokes.
                     </p>
-                    <p className='text-[16px] leading-[24px] text-[#444444]'>
-                      Learn more about{' '}
-                      <a
-                        href='https://www.heartfoundation.org.au/your-heart/are-you-at-risk-of-heart-disease'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='underline text-red-main font-semibold'>
-                        how your blood pressure, cholesterol and lifestyle impacts your
-                        risk of developing heart disease
-                      </a>
-                      .
-                    </p>
+                    <a
+                      href='https://www.heartfoundation.org.au/your-heart/are-you-at-risk-of-heart-disease'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='px-6 rounded-3xl inline-flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
+                      Learn more
+                    </a>
                   </div>
                 ) : (
                   <div className='space-y-4 text-center'>
                     <h1 className='font-semibold text-[20px] leading-[28px]'>
                       This calculator is designed for people aged 35–75 years. If you are
-                      over 75, it may not estimate your risk accurately.
+                      over 75, it may not estimate your risk accurately and as such you
+                      are unable to proceed in using the calculator.
                     </h1>
                     <p className='text-[16px] leading-[24px] text-[#444444]'>
-                      For people over 75, the best way to understand your risk of heart
-                      attack or stroke is to speak to your GP about a Medicare-subsidised{' '}
+                      For people over 75, one of the best ways to understand your risk of
+                      heart attack or stroke is to speak to your GP about a
+                      Medicare-subsidised{' '}
                       <a
                         href='https://www.heartfoundation.org.au/your-heart/heart-health-checks'
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='underline text-red-main font-semibold'>
+                        className='underline font-semibold'>
                         Heart Health Check
                       </a>
-                      . A Heart Health Check will help you understand your risk of having
-                      a heart attack or stroke in the next 5 years and what you can do to
-                      prevent it.
+                      . A Heart Health Check will
+                      help you understand your risk of having a heart attack or stroke in
+                      the next 5 years and what you can do to prevent it.
                     </p>
+                    <a
+                      href='https://www.heartfoundation.org.au/your-heart/heart-health-checks'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='px-6 rounded-3xl inline-flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
+                      Learn more
+                    </a>
                   </div>
                 )}
-                <button
-                  onClick={handleAgePopupClose}
-                  className='px-6 rounded-3xl flex items-center gap-2 bg-red-main py-2 text-white font-bold'>
-                  Update my age
-                </button>
               </div>
             </ModalBody>
           )}

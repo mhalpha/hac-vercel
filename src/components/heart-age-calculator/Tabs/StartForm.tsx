@@ -70,8 +70,8 @@ const StartForm = ({
         </div>
         <p className='text-center text-sm text-gray-600'>
           Disclaimer: This calculator is intended for people aged 35–75 who do not
-          have heart disease. If you are over the age of 75, we recommend discussing
-          your heart health with your GP. To learn more, visit FAQs.
+          have heart disease. If you are outside this age range, we recommend discussing your
+          heart health with your GP. To learn more, visit FAQs below.
         </p>
       </div>
     </Slide>
