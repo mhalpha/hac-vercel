@@ -71,7 +71,6 @@ const StartForm = ({
           have heart disease. If you are outside this age range, we recommend discussing your
           heart health with your GP. To learn more, visit FAQs below.
         </p>
-      </div>
     </div>
   );
 };
