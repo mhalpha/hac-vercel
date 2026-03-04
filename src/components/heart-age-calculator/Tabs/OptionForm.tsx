@@ -3,7 +3,6 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 import { TabProps, formList } from '../../../../types/Global';
 import { GiCheckMark } from 'react-icons/gi';
 import ShowError from '@/components/shared/heart-age-calculator/ShowError';
-import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import { Modal, ModalContent, ModalBody } from '@nextui-org/react';
 import QuestionTitle from '@/components/shared/heart-age-calculator/QuestionTitle';
@@ -141,7 +140,7 @@ const OptionForm: React.FC<OptionFormProps> = ({
     <>
       <article className='w-full relative'>
         <div className='overflow-hidden'>
-        <Slide className='w-full' direction='up' delay={10 * steps.current}>
+        <div className='form-slide-up'>
         <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
             <div className='flex items-start'>
               <p className='flex gap-1 items-center'>
@@ -195,7 +194,7 @@ const OptionForm: React.FC<OptionFormProps> = ({
               {/* <Check formKey={formKey} formRef={formRef} handleClick={handleForward} /> */}
             </div>
           </div>
-        </Slide>
+        </div>
         </div>
 
         <div

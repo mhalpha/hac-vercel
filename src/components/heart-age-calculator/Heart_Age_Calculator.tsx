@@ -72,8 +72,8 @@ const Heart_Age_Calculator: React.FC = () => {
   }, [formRef.cholesterolLevel, formRef.bloodPressureLevel]);
 
   return (
-    <Wrapper Style='w-full min-h-[calc(100vh-80px)] pt-2 md:pt-4'>
-      <div className='w-full overflow-y-auto flex flex-col justify-center'>
+    <Wrapper Style='w-full h-[calc(100vh-80px)] pt-2 md:pt-4'>
+      <div className='w-full h-full overflow-y-auto flex flex-col justify-center'>
         <article className='w-full p-4 pb-0 md:p-4 space-y-4 md:space-y-12'>
           <div className='w-full flex justify-center md:max-w-[70%] mx-auto'>
             {steps.current > 0 &&

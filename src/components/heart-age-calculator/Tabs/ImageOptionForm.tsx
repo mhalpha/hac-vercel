@@ -7,7 +7,6 @@ import { GiCheckMark } from 'react-icons/gi';
 import Check from '@/components/shared/heart-age-calculator/Check';
 import Image from 'next/image';
 import ShowError from '@/components/shared/heart-age-calculator/ShowError';
-import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import QuestionTitle from '@/components/shared/heart-age-calculator/QuestionTitle';
 import { IoArrowDownOutline } from 'react-icons/io5';
@@ -78,7 +77,7 @@ const ImageOptionForm: React.FC<OptionFormProps> = ({
   return (
     <article className='w-full relative'>
       <div className='overflow-hidden'>
-      <Slide className='w-full' direction='up' delay={10 * steps.current}>
+      <div className='form-slide-up'>
       <div className='flex flex-col md:flex-row  gap-4 text-xl pb-14'>
           <div className='flex items-start'>
             <p className='flex gap-1 items-center'>
@@ -136,7 +135,7 @@ const ImageOptionForm: React.FC<OptionFormProps> = ({
             {/* <Check formKey={formKey} formRef={formRef} handleClick={handleForward} /> */}
           </div>
         </div>
-      </Slide>
+      </div>
       </div>
       <div
         className={` h-full flex gap-[0.10rem] justify-end items-end text-2xl absolute bottom-0 right-2`}>
