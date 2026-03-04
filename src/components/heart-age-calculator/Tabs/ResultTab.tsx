@@ -4,6 +4,7 @@ import React, { SetStateAction, Dispatch, useState } from 'react';
 import { LookupTables, formList } from '../../../../types/Global';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import { IoArrowDownOutline, IoArrowUpOutline } from 'react-icons/io5';
 import { sendGTMEvent } from '@next/third-parties/google';
@@ -46,24 +47,27 @@ const ResultTab = ({
       } items-center `}>
       {!showResults && (
         <div className='w-full flex flex-col items-center'>
-            <div className=' flex flex-col md:flex-row gap-4 text-xl pb-14'>
-              <div className='w-full flex flex-col'>
-                <h1 className='font-bold text-xl md:text-4xl text-center'>
-                  We have calculated your estimated heart age based on the information you
-                  gave us.
-                </h1>
-                <div className='w-full  flex justify-center'>
-                  <button
-                    className='bg-red-main text-white font-bold px-6 rounded-3xl text-2xl py-2 mt-4'
-                    onClick={() => {
-                      handleGetResultsClick();
-                      sendGTMEvent(eventData);
-                    }}>
-                    Get results
-                  </button>
+          <div className='overflow-hidden w-full'>
+            <Slide direction='up' delay={100} className='w-full'>
+              <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
+                <div className='w-full flex flex-col'>
+                  <h1 className='font-bold text-xl md:text-4xl text-center'>
+                    We have calculated your estimated heart age based on the information you
+                    gave us.
+                  </h1>
+                  <div className='w-full flex justify-center'>
+                    <button
+                      className='bg-red-main text-white font-bold px-6 rounded-3xl text-2xl py-2 mt-4'
+                      onClick={() => {
+                        handleGetResultsClick();
+                        sendGTMEvent(eventData);
+                      }}>
+                      Get results
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Slide>
           </div>
           <div className='bg-white flex gap-[0.10rem] justify-end items-end text-2xl absolute bottom-0 right-2'>
             <ArrowButton

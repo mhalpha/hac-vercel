@@ -5,6 +5,7 @@ import { TbAlertTriangleFilled } from 'react-icons/tb';
 import { TabProps, formList } from '../../../../types/Global';
 import Check from '@/components/shared/heart-age-calculator/Check';
 import ShowError from '@/components/shared/heart-age-calculator/ShowError';
+import { Slide } from 'react-awesome-reveal';
 import ArrowButton from '@/components/shared/heart-age-calculator/ArrowButton';
 import TextInput from '@/components/shared/heart-age-calculator/TextInput';
 import QuestionTitle from '@/components/shared/heart-age-calculator/QuestionTitle';
@@ -138,6 +139,8 @@ const InputText: React.FC<InputTextProps> = ({
   return (
     <>
       <article className='w-full relative'>
+        <div className='overflow-hidden'>
+        <Slide direction='up' delay={10 * steps.current}>
         <div className='flex flex-col md:flex-row gap-4 text-xl pb-14'>
             <div className='flex items-start'>
               <p className='flex gap-1 items-center'>
@@ -200,6 +203,7 @@ const InputText: React.FC<InputTextProps> = ({
               <Check formKey={formKey} formRef={formRef} handleClick={handleForward} />
             </div>
           </div>
+        </Slide>
         </div>
 
         <div className='bg-white flex gap-[0.10rem] justify-end text-2xl absolute bottom-0 right-2'>
