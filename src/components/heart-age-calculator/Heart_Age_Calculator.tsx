@@ -74,7 +74,7 @@ const Heart_Age_Calculator: React.FC = () => {
   return (
     <Wrapper Style='w-full h-[calc(100vh-80px)] pt-2 md:pt-4'>
       <div className='w-full h-full overflow-y-auto'>
-        <div className='min-h-full flex flex-col justify-center'>
+        <div className={`min-h-full flex flex-col ${steps.current === 0 ? 'justify-start pt-8' : 'justify-center'}`}>
         <article className='w-full p-4 pb-0 md:p-4 space-y-4 md:space-y-12'>
           <div className='w-full flex justify-center md:max-w-[70%] mx-auto'>
             {steps.current > 0 &&
