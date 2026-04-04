@@ -21,7 +21,7 @@
     "eslint-config-next": "13.4.19",
     "framer-motion": "^11.0.3",
     "juice": "^9.1.0",
-    "next": "^14.0.3",
+    "next": "14.2.35",
     "nodemailer": "^6.9.7",
     "postcss": "8.4.29",
     "react": "18.2.0",
